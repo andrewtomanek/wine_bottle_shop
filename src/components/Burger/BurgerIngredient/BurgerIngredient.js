@@ -18,17 +18,29 @@ const burgerIngredient = props => {
         </div>
       );
       break;
-    case "meat":
-      ingredient = <div className={classes.Meat} />;
+    case "wine1":
+      ingredient = <div className={classes.wine1} />;
       break;
-    case "cheese":
-      ingredient = <div className={classes.Cheese} />;
+    case "wine2":
+      ingredient = <div className={classes.wine2} />;
       break;
-    case "bacon":
-      ingredient = <div className={classes.Bacon} />;
+    case "wine3":
+      ingredient = <div className={classes.wine3} />;
       break;
-    case "salad":
-      ingredient = <div className={classes.Salad} />;
+    case "wine4":
+      ingredient = <div className={classes.wine4} />;
+      break;
+    case "wine5":
+      ingredient = <div className={classes.wine5} />;
+      break;
+    case "wine6":
+      ingredient = <div className={classes.wine6} />;
+      break;
+    case "wine7":
+      ingredient = <div className={classes.wine7} />;
+      break;
+    case "wine8":
+      ingredient = <div className={classes.wine8} />;
       break;
     default:
       ingredient = null;

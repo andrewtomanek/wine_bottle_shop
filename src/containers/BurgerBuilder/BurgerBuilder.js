@@ -81,7 +81,6 @@ const BurgerBuilder = props => {
       />
     );
   }
-  // {salad: true, meat: false, ...}
   return (
     <Fragment>
       <Modal show={purchasing} modalClosed={purchaseCancelHandler}>
