@@ -45,10 +45,10 @@ const buildControls = props => (
       </button>
       <p className={classes.PriceSum}>
         {console.log(props.ingredients)}
-        Items: {props.ingredients}
+        Suma: {props.ingredients}
         {props.ingredients !== 0 && props.ingredients % 6 === 0
-          ? "ORDER "
-          : "add UP TO 6"}
+          ? " ORDER "
+          : " add UP TO " + (6 - (props.ingredients % 6))}
       </p>
     </div>
   </div>
