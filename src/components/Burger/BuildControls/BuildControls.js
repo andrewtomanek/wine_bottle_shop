@@ -29,7 +29,8 @@ const buildControls = props => (
     <div className={classes.ControlBox}>
       <p className={classes.PriceSum}>
         Current Price: {props.price.toFixed(2)}
-      </p>
+      </p>{" "}
+      <p className={classes.PriceSum}>Suma: {props.ingredients}</p>
       <button
         className={classes.OrderButton}
         disabled={
@@ -44,11 +45,14 @@ const buildControls = props => (
         {props.isAuth ? "ORDER NOW" : "SIGN UP TO ORDER"}
       </button>
       <p className={classes.PriceSum}>
-        {console.log(props.ingredients)}
-        Suma: {props.ingredients}
         {props.ingredients !== 0 && props.ingredients % 6 === 0
           ? " ORDER "
           : " add UP TO " + (6 - (props.ingredients % 6))}
+      </p>
+      <p className={classes.PriceSum}>
+        {Number.isInteger(props.ingredients / 6)
+          ? props.ingredients / 6
+          : Math.floor(props.ingredients / 6)}
       </p>
     </div>
   </div>

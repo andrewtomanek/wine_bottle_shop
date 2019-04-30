@@ -1,10 +1,8 @@
 .BuildControls {
-  width: 100%;
   display: grid;
   align-items: center;
-  box-shadow: 0 2px 1px #ccc;
   margin: 0;
-  padding: 0;
+  padding: 0 2rem;
   background-color: var(--wine);
 }
 
@@ -14,18 +12,15 @@
   grid-template-columns: repeat(4, minmax(10vw, 1fr));
   grid-template-rows: repeat(auto-fill, minmax(5vh, 1fr));
   align-items: center;
-  box-shadow: 0 2px 1px #ccc;
   padding: 0;
 }
 
 .ControlBox {
-  width: 100%;
   background-color: var(--wine);
   display: grid;
-  grid-gap: 3rem;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 0.3rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   justify-items: center;
-  box-shadow: 0 2px 1px #ccc;
   padding: 0;
 }
 
