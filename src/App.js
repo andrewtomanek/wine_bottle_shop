@@ -1,7 +1,7 @@
 import React, { useEffect, Suspense } from "react";
 import { Route, Switch, withRouter, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-
+import "./App.css";
 import Layout from "./hoc/Layout/Layout";
 import BurgerBuilder from "./containers/BurgerBuilder/BurgerBuilder";
 import Logout from "./containers/Auth/Logout/Logout";
@@ -46,7 +46,8 @@ const App = props => {
   }
 
   return (
-    <div>
+    <div className="wrapp__app">
+      {" "}
       <Layout>
         <Suspense fallback={<p>Loading...</p>}>{routes}</Suspense>
       </Layout>

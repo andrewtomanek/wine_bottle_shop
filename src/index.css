@@ -1,3 +1,26 @@
+:root {
+  --green: hsla(80, 61%, 50%, 1);
+  --orange: hsla(24, 100%, 50%, 1);
+  --yellow: hsla(54, 100%, 50%, 1);
+  --blue: hsla(211, 76%, 28%, 1);
+  --red: hsla(353, 42%, 32%, 1);
+  --wine: hsla(61, 81%, 74%, 1);
+  font-size: calc(1vw + 1vh + 0.5vmin);
+}
+
+#root {
+  min-height: 100vh;
+  text-align: center;
+  background-color: var(--wine);
+  overflow: hidden;
+}
+
+.wrapp__app {
+  height: 100%;
+  text-align: center;
+  background-color: var(--wine);
+}
+
 body {
   margin: 0;
   padding: 0;

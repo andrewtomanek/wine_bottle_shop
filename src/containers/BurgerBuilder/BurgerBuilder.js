@@ -14,6 +14,7 @@ import axios from "../../axios-orders";
 
 const BurgerBuilder = props => {
   const [purchasing, setPurchasing] = useState(false);
+  const [sumItems, setSumItems] = useState(0);
 
   useEffect(() => {
     props.onInitIngredients();
@@ -28,6 +29,23 @@ const BurgerBuilder = props => {
         return sum + el;
       }, 0);
     return sum > 0;
+  };
+
+  const updateCartState = ingredients => {
+    /*   console.log(props.ings);
+    let sumCart = 0;
+    const cart = Object.entries(props.ings);
+    cart.forEach(item => (sumCart += item[1]));
+    setSumItems(sumCart);
+    console.log(sumCart, sumItems); */
+    const sum = Object.keys(ingredients)
+      .map(igKey => {
+        return ingredients[igKey];
+      })
+      .reduce((sum, el) => {
+        return sum + el;
+      }, 0);
+    return sum;
   };
 
   const purchaseHandler = () => {
@@ -62,6 +80,7 @@ const BurgerBuilder = props => {
       <Fragment>
         <Burger ingredients={props.ings} />
         <BuildControls
+          ingredients={updateCartState(props.ings)}
           ingredientAdded={props.onIngredientAdded}
           ingredientRemoved={props.onIngredientRemoved}
           disabled={disabledInfo}
