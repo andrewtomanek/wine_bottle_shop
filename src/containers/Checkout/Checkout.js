@@ -1,9 +1,9 @@
-import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React from "react";
+import { Route, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 
-import CheckoutSummary from '../../components/Order/CheckoutSummary/CheckoutSummary';
-import ContactData from './ContactData/ContactData';
+import CheckoutSummary from "../../components/Order/CheckoutSummary/CheckoutSummary";
+import ContactData from "./ContactData/ContactData";
 
 const checkout = props => {
   const checkoutCancelledHandler = () => {
@@ -11,7 +11,7 @@ const checkout = props => {
   };
 
   const checkoutContinuedHandler = () => {
-    props.history.replace('/checkout/contact-data');
+    props.history.replace("/checkout/contact-data");
   };
 
   let summary = <Redirect to="/" />;
@@ -26,7 +26,7 @@ const checkout = props => {
           checkoutContinued={checkoutContinuedHandler}
         />
         <Route
-          path={props.match.path + '/contact-data'}
+          path={props.match.path + "/contact-data"}
           component={ContactData}
         />
       </div>
@@ -37,7 +37,7 @@ const checkout = props => {
 
 const mapStateToProps = state => {
   return {
-    ings: state.burgerBuilder.ingredients,
+    ings: state.storeBuilder.ingredients,
     purchased: state.order.purchased
   };
 };

@@ -43,7 +43,7 @@ const Auth = props => {
   const [isSignup, setIsSignup] = useState(true);
 
   useEffect(() => {
-    if (!props.buildingBurger && props.authRedirectPath !== "/") {
+    if (!props.buildingStore && props.authRedirectPath !== "/") {
       props.onSetAuthRedirectPath();
     }
   }, [props]);
@@ -127,7 +127,7 @@ const mapStateToProps = state => {
     loading: state.auth.loading,
     error: state.auth.error,
     isAuthenticated: state.auth.token !== null,
-    buildingBurger: state.burgerBuilder.building,
+    buildingStore: state.storeBuilder.building,
     authRedirectPath: state.auth.authRedirectPath
   };
 };

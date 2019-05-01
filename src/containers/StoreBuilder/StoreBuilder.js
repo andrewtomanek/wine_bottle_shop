@@ -1,10 +1,10 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { connect } from "react-redux";
 
-import Burger from "../../components/Burger/Burger";
-import BuildControls from "../../components/Burger/BuildControls/BuildControls";
+import Store from "../../components/Store/Store";
+import BuildControls from "../../components/Store/BuildControls/BuildControls";
 import Modal from "../../components/UI/Modal/Modal";
-import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
+import OrderSummary from "../../components/Store/OrderSummary/OrderSummary";
 import Spinner from "../../components/UI/Spinner/Spinner";
 /* eslint-disable */
 
@@ -12,7 +12,7 @@ import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 import * as actions from "../../store/actions/index";
 import axios from "../../axios-orders";
 
-const BurgerBuilder = props => {
+const storeBuilder = props => {
   const [purchasing, setPurchasing] = useState(false);
   console.log(props);
   useEffect(() => {
@@ -70,12 +70,12 @@ const BurgerBuilder = props => {
     disabledInfo[key] = disabledInfo[key] <= 0;
   }
   let orderSummary = null;
-  let burger = props.error ? <p>Ingredients can't be loaded!</p> : <Spinner />;
+  let store = props.error ? <p>Ingredients can't be loaded!</p> : <Spinner />;
 
   if (props.ings) {
-    burger = (
+    store = (
       <Fragment>
-        <Burger ingredients={props.ings} listItems={props.items} />
+        <Store ingredients={props.ings} listItems={props.items} />
         <BuildControls
           ingredients={updateCartState(props.ings)}
           ingredientAdded={props.onIngredientAdded}
@@ -102,17 +102,17 @@ const BurgerBuilder = props => {
       <Modal show={purchasing} modalClosed={purchaseCancelHandler}>
         {orderSummary}
       </Modal>
-      {burger}
+      {store}
     </Fragment>
   );
 };
 
 const mapStateToProps = state => {
   return {
-    ings: state.burgerBuilder.ingredients,
-    items: state.burgerBuilder.listItems,
-    price: state.burgerBuilder.totalPrice,
-    error: state.burgerBuilder.error,
+    ings: state.storeBuilder.ingredients,
+    items: state.storeBuilder.listItems,
+    price: state.storeBuilder.totalPrice,
+    error: state.storeBuilder.error,
     isAuthenticated: state.auth.token !== null
   };
 };
@@ -131,4 +131,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withErrorHandler(BurgerBuilder, axios));
+)(withErrorHandler(storeBuilder, axios));

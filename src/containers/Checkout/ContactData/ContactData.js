@@ -110,7 +110,7 @@ const ContactData = props => {
       userId: props.userId
     };
 
-    props.onOrderBurger(order, props.token);
+    props.onOrderStore(order, props.token);
   };
 
   const inputChangedHandler = (event, inputIdentifier) => {
@@ -173,8 +173,8 @@ const ContactData = props => {
 
 const mapStateToProps = state => {
   return {
-    ings: state.burgerBuilder.ingredients,
-    price: state.burgerBuilder.totalPrice,
+    ings: state.storeBuilder.ingredients,
+    price: state.storeBuilder.totalPrice,
     loading: state.order.loading,
     token: state.auth.token,
     userId: state.auth.userId
@@ -183,8 +183,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onOrderBurger: (orderData, token) =>
-      dispatch(actions.purchaseBurger(orderData, token))
+    onOrderStore: (orderData, token) =>
+      dispatch(actions.purchaseStore(orderData, token))
   };
 };
 

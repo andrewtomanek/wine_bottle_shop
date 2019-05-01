@@ -3,7 +3,7 @@ import { Route, Switch, withRouter, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import "./App.css";
 import Layout from "./hoc/Layout/Layout";
-import BurgerBuilder from "./containers/BurgerBuilder/BurgerBuilder";
+import StoreBuilder from "./containers/StoreBuilder/StoreBuilder";
 import Logout from "./containers/Auth/Logout/Logout";
 import * as actions from "./store/actions/index";
 
@@ -27,7 +27,7 @@ const App = props => {
   let routes = (
     <Switch>
       <Route path="/auth" render={props => <Auth {...props} />} />
-      <Route path="/" exact render={props => <BurgerBuilder {...props} />} />
+      <Route path="/" exact render={props => <StoreBuilder {...props} />} />
       <Redirect to="/" />
     </Switch>
   );
@@ -39,7 +39,7 @@ const App = props => {
         <Route path="/orders" render={props => <Orders {...props} />} />
         <Route path="/logout" component={Logout} />
         <Route path="/auth" render={props => <Auth {...props} />} />
-        <Route path="/" exact component={BurgerBuilder} />
+        <Route path="/" exact component={StoreBuilder} />
         <Redirect to="/" />
       </Switch>
     );

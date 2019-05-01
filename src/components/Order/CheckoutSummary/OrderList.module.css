@@ -1,4 +1,4 @@
-.Burger {
+.Store {
   grid-area: 1/1/1/1;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));

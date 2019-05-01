@@ -1,14 +1,14 @@
 import React from "react";
 
-import classes from "./Burger.module.css";
-import BurgerIngredient from "./BurgerIngredient/BurgerIngredient";
+import classes from "./Store.module.css";
+import StoreItem from "./StoreItem/StoreItem";
 
-const burger = props => {
+const store = props => {
   console.log(props);
   let transformedIngredients = Object.keys(props.ingredients)
     .map(igKey => {
       return [...Array(props.ingredients[igKey])].map((_, i) => {
-        return <BurgerIngredient key={igKey + i} type={igKey} />;
+        return <StoreItem key={igKey + i} type={igKey} />;
       });
     })
     .reduce((arr, el) => {
@@ -17,7 +17,7 @@ const burger = props => {
   if (transformedIngredients.length === 0) {
     transformedIngredients = <p>Please start adding bottles!</p>;
   }
-  return <div className={classes.Burger}>{transformedIngredients}</div>;
+  return <div className={classes.Store}>{transformedIngredients}</div>;
 };
 
-export default burger;
+export default store;
