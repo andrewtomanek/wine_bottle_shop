@@ -28,6 +28,19 @@ export const fetchIngredientsFailed = () => {
   };
 };
 
+export const setList = listItems => {
+  return {
+    type: actionTypes.SET_LIST,
+    listItems: listItems
+  };
+};
+
+export const fetchListFailed = () => {
+  return {
+    type: actionTypes.FETCH_LIST_FAILED
+  };
+};
+
 export const initIngredients = () => {
   return dispatch => {
     axios
@@ -37,6 +50,19 @@ export const initIngredients = () => {
       })
       .catch(error => {
         dispatch(fetchIngredientsFailed());
+      });
+  };
+};
+
+export const initList = () => {
+  return dispatch => {
+    axios
+      .get("https://bottle-2f0f4.firebaseio.com/list.json")
+      .then(response => {
+        dispatch(setList(response.data));
+      })
+      .catch(error => {
+        dispatch(fetchListFailed());
       });
   };
 };

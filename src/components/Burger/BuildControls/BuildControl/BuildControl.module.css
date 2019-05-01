@@ -1,6 +1,6 @@
 .BuildControl {
   display: grid;
-  grid-template-columns: 5fr 1fr 1fr;
+  grid-template-columns: 5fr 1fr 1fr 2fr;
   grid-auto-flow: column;
   align-items: center;
   margin: 0;
@@ -11,6 +11,8 @@
 .BuildControl button {
   display: block;
   font: inherit;
+  font-size: 1rem;
+  font-weight: 900;
   padding: 0.3rem 0.6rem;
   margin: 0;
   border: 1px solid #aa6817;
@@ -35,6 +37,15 @@
   color: white;
   padding: 0.3rem;
   font-weight: 800;
+  text-align: left;
+}
+
+.Price {
+  background-color: var(--orange);
+  color: white;
+  padding: 0.3rem;
+  font-weight: 600;
+  text-align: right;
 }
 
 .BuildControl .Less {

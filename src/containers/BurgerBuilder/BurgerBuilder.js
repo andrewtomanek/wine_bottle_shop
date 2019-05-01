@@ -14,10 +14,13 @@ import axios from "../../axios-orders";
 
 const BurgerBuilder = props => {
   const [purchasing, setPurchasing] = useState(false);
-  const [sumItems, setSumItems] = useState(0);
-
+  console.log(props);
   useEffect(() => {
     props.onInitIngredients();
+  }, []);
+
+  useEffect(() => {
+    props.onInitList();
   }, []);
 
   const updatePurchaseState = ingredients => {
@@ -32,12 +35,6 @@ const BurgerBuilder = props => {
   };
 
   const updateCartState = ingredients => {
-    /*   console.log(props.ings);
-    let sumCart = 0;
-    const cart = Object.entries(props.ings);
-    cart.forEach(item => (sumCart += item[1]));
-    setSumItems(sumCart);
-    console.log(sumCart, sumItems); */
     const sum = Object.keys(ingredients)
       .map(igKey => {
         return ingredients[igKey];
@@ -78,7 +75,7 @@ const BurgerBuilder = props => {
   if (props.ings) {
     burger = (
       <Fragment>
-        <Burger ingredients={props.ings} />
+        <Burger ingredients={props.ings} listItems={props.items} />
         <BuildControls
           ingredients={updateCartState(props.ings)}
           ingredientAdded={props.onIngredientAdded}
@@ -113,6 +110,7 @@ const BurgerBuilder = props => {
 const mapStateToProps = state => {
   return {
     ings: state.burgerBuilder.ingredients,
+    items: state.burgerBuilder.listItems,
     price: state.burgerBuilder.totalPrice,
     error: state.burgerBuilder.error,
     isAuthenticated: state.auth.token !== null
@@ -124,6 +122,7 @@ const mapDispatchToProps = dispatch => {
     onIngredientAdded: ingName => dispatch(actions.addIngredient(ingName)),
     onIngredientRemoved: ingName => dispatch(actions.removeIngredient(ingName)),
     onInitIngredients: () => dispatch(actions.initIngredients()),
+    onInitList: () => dispatch(actions.initList()),
     onInitPurchase: () => dispatch(actions.purchaseInit()),
     onSetAuthRedirectPath: path => dispatch(actions.setAuthRedirectPath(path))
   };

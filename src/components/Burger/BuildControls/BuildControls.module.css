@@ -27,11 +27,10 @@
 .PriceSum {
   background-color: var(--wine);
   outline: none;
-  cursor: pointer;
   border: 0.2rem solid var(--red);
   color: var(--red);
   font-family: inherit;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   padding: 0.1rem 0.2rem;
   box-shadow: 2px 2px 2px #966909;

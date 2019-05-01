@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import classes from "./OrderSummary.module.css";
 import Button from "../../UI/Button/Button";
 
@@ -14,7 +14,7 @@ const orderSummary = props => {
 
   return (
     <div className={classes.OrderSummary}>
-      <h3>Your Order</h3>
+      <h3>Vaše objednávka</h3>
       <div className={classes.OrderBox}>{ingredientSummary}</div>
       <div className={classes.OrderControls}>
         <p className={classes.OrderItem}>
