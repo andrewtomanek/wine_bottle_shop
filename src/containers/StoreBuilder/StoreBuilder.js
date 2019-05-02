@@ -14,7 +14,6 @@ import axios from "../../axios-orders";
 
 const storeBuilder = props => {
   const [purchasing, setPurchasing] = useState(false);
-  console.log(props);
   useEffect(() => {
     props.onInitIngredients();
   }, []);

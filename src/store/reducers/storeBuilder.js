@@ -3,7 +3,7 @@ import { updateObject } from "../../shared/utility";
 
 const initialState = {
   ingredients: null,
-  listItems: null,
+  listItems: "",
   totalPrice: 4,
   error: false,
   building: false
@@ -71,14 +71,14 @@ const fetchIngredientsFailed = (state, action) => {
 const setList = (state, action) => {
   return updateObject(state, {
     listItems: {
-      wine1: action.list.wine1,
-      wine2: action.list.wine2,
-      wine3: action.list.wine3,
-      wine4: action.list.wine4,
-      wine5: action.list.wine5,
-      wine6: action.list.wine6,
-      wine7: action.list.wine7,
-      wine8: action.list.wine8
+      wine1: action.listItems.wine1,
+      wine2: action.listItems.wine2,
+      wine3: action.listItems.wine3,
+      wine4: action.listItems.wine4,
+      wine5: action.listItems.wine5,
+      wine6: action.listItems.wine6,
+      wine7: action.listItems.wine7,
+      wine8: action.listItems.wine8
     }
   });
 };
