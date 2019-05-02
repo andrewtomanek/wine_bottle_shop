@@ -15,11 +15,8 @@ import axios from "../../axios-orders";
 const storeBuilder = props => {
   const [purchasing, setPurchasing] = useState(false);
   useEffect(() => {
-    props.onInitIngredients();
-  }, []);
-
-  useEffect(() => {
     props.onInitList();
+    props.onInitIngredients();
   }, []);
 
   const updatePurchaseState = ingredients => {
@@ -90,6 +87,7 @@ const storeBuilder = props => {
     orderSummary = (
       <OrderSummary
         ingredients={props.ings}
+        listItems={props.items}
         price={props.price}
         purchaseCancelled={purchaseCancelHandler}
         purchaseContinued={purchaseContinueHandler}

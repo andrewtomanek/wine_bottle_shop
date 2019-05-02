@@ -22,6 +22,7 @@ const checkout = props => {
         {purchasedRedirect}
         <CheckoutSummary
           ingredients={props.ings}
+          listItems={props.items}
           checkoutCancelled={checkoutCancelledHandler}
           checkoutContinued={checkoutContinuedHandler}
         />
@@ -38,6 +39,7 @@ const checkout = props => {
 const mapStateToProps = state => {
   return {
     ings: state.storeBuilder.ingredients,
+    items: state.storeBuilder.listItems,
     purchased: state.order.purchased
   };
 };

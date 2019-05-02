@@ -5,14 +5,9 @@
   outline: none;
   cursor: pointer;
   font: inherit;
-  padding: 10px;
-  margin: 10px;
-  font-weight: bold;
-}
-
-.Button:first-of-type {
-  margin-left: 0;
-  padding-left: 0;
+  padding: 1rem;
+  margin: 0px;
+  font-weight: 800;
 }
 
 .Button:disabled {
@@ -21,9 +16,9 @@
 }
 
 .Success {
-  color: var(--green);
+  background-color: var(--green);
 }
 
 .Danger {
-  color: var(--red);
+  background-color: var(--red);
 }

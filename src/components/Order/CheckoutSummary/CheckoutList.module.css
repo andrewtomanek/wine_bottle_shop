@@ -1,8 +1,8 @@
-.Store {
+.CheckoutList {
   grid-area: 1/1/1/1;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
-  grid-template-rows: repeat(auto-fill, minmax(30%, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(10%, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(20%, 1fr));
   width: 100vw;
   height: 60vh;
   margin: 0;

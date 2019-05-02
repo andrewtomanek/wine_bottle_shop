@@ -1,14 +1,14 @@
 import React from "react";
 
-import classes from "./Store.module.css";
-import StoreItem from "./StoreItem/StoreItem";
+import classes from "./CheckoutList.module.css";
+import CheckoutItem from "./CheckoutItem";
 
 const store = props => {
   let transformedItems = Object.keys(props.ingredients)
     .map(igKey => {
       return [...Array(props.ingredients[igKey])].map((_, i) => {
         return (
-          <StoreItem
+          <CheckoutItem
             key={igKey + i}
             type={igKey}
             itemName={props.listItems[igKey]}
@@ -23,7 +23,7 @@ const store = props => {
   if (transformedItems.length === 0) {
     transformedItems = <p>Naplň přepravní box</p>;
   }
-  return <div className={classes.Store}>{transformedItems}</div>;
+  return <div className={classes.CheckoutList}>{transformedItems}</div>;
 };
 
 export default store;
