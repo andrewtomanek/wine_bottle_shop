@@ -4,9 +4,9 @@ import classes from "./CheckoutList.module.css";
 import CheckoutItem from "./CheckoutItem";
 
 const store = props => {
-  let transformedItems = Object.keys(props.ingredients)
+  let transformedItems = Object.keys(props.inventory)
     .map(igKey => {
-      return [...Array(props.ingredients[igKey])].map((_, i) => {
+      return [...Array(props.inventory[igKey])].map((_, i) => {
         return (
           <CheckoutItem
             key={igKey + i}

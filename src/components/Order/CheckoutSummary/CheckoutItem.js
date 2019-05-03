@@ -4,37 +4,69 @@ import PropTypes from "prop-types";
 import classes from "./CheckoutItem.module.css";
 
 const checkoutItem = props => {
-  let ingredient = null;
+  let inventory = null;
   switch (props.type) {
-    case "wine1":
-      ingredient = <div className={classes.wine1}>{props.itemName} </div>;
+    case "shopItem1":
+      inventory = (
+        <div className={classes.shopItem1}>
+          <p className={classes.ItemLabel}>{props.itemName}</p>{" "}
+        </div>
+      );
       break;
-    case "wine2":
-      ingredient = <div className={classes.wine2}>{props.itemName} </div>;
+    case "shopItem2":
+      inventory = (
+        <div className={classes.shopItem2}>
+          <p className={classes.ItemLabel}>{props.itemName}</p>{" "}
+        </div>
+      );
       break;
-    case "wine3":
-      ingredient = <div className={classes.wine3}>{props.itemName} </div>;
+    case "shopItem3":
+      inventory = (
+        <div className={classes.shopItem3}>
+          <p className={classes.ItemLabel}>{props.itemName}</p>{" "}
+        </div>
+      );
       break;
-    case "wine4":
-      ingredient = <div className={classes.wine4}>{props.itemName} </div>;
+    case "shopItem4":
+      inventory = (
+        <div className={classes.shopItem4}>
+          <p className={classes.ItemLabel}>{props.itemName}</p>{" "}
+        </div>
+      );
       break;
-    case "wine5":
-      ingredient = <div className={classes.wine5}>{props.itemName} </div>;
+    case "shopItem5":
+      inventory = (
+        <div className={classes.shopItem5}>
+          <p className={classes.ItemLabel}>{props.itemName}</p>{" "}
+        </div>
+      );
       break;
-    case "wine6":
-      ingredient = <div className={classes.wine6}>{props.itemName} </div>;
+    case "shopItem6":
+      inventory = (
+        <div className={classes.shopItem6}>
+          <p className={classes.ItemLabel}>{props.itemName}</p>{" "}
+        </div>
+      );
       break;
-    case "wine7":
-      ingredient = <div className={classes.wine7}>{props.itemName} </div>;
+    case "shopItem7":
+      inventory = (
+        <div className={classes.shopItem7}>
+          <p className={classes.ItemLabel}>{props.itemName}</p>{" "}
+        </div>
+      );
       break;
-    case "wine8":
-      ingredient = <div className={classes.wine8}>{props.itemName} </div>;
+    case "shopItem8":
+      inventory = (
+        <div className={classes.shopItem8}>
+          <p className={classes.ItemLabel}>{props.itemName}</p>{" "}
+        </div>
+      );
       break;
     default:
-      ingredient = null;
+      inventory = null;
   }
 
-  return ingredient;
+  return inventory;
 };
 
 checkoutItem.propTypes = {

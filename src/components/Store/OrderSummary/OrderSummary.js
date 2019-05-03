@@ -3,11 +3,11 @@ import classes from "./OrderSummary.module.css";
 import Button from "../../UI/Button/Button";
 
 const orderSummary = props => {
-  const ingredientSummary = Object.keys(props.ingredients).map(igKey => {
+  const inventorySummary = Object.keys(props.inventory).map(igKey => {
     return (
       <div className={classes.OrderItem} key={igKey}>
         <span className={classes.OrderName}>{props.listItems[igKey]}</span>
-        <span className={classes.OrderPrice}> {props.ingredients[igKey]}</span>
+        <span className={classes.OrderPrice}> {props.inventory[igKey]}</span>
       </div>
     );
   });
@@ -15,7 +15,7 @@ const orderSummary = props => {
   return (
     <div className={classes.OrderSummary}>
       <h3 className={classes.OrderTitle}>Vaše objednávka</h3>
-      <div className={classes.OrderBox}>{ingredientSummary}</div>
+      <div className={classes.OrderBox}>{inventorySummary}</div>
       <div className={classes.OrderControls}>
         <Button btnType="Danger" clicked={props.purchaseCancelled}>
           CANCEL

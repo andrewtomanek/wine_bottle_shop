@@ -3,16 +3,16 @@ import React from "react";
 import classes from "./Order.module.css";
 
 const order = props => {
-  const ingredients = [];
+  const inventory = [];
 
-  for (let ingredientName in props.ingredients) {
-    ingredients.push({
-      name: ingredientName,
-      amount: props.ingredients[ingredientName]
+  for (let inventoryName in props.inventory) {
+    inventory.push({
+      name: inventoryName,
+      amount: props.inventory[inventoryName]
     });
   }
 
-  const ingredientOutput = ingredients.map(ig => {
+  const inventoryOutput = inventory.map(ig => {
     return (
       <span
         style={{
@@ -31,7 +31,7 @@ const order = props => {
 
   return (
     <div className={classes.Order}>
-      <p>Ingredients: {ingredientOutput}</p>
+      <p>Inventory: {inventoryOutput}</p>
       <p>
         Price: <strong>USD {Number.parseFloat(props.price).toFixed(2)}</strong>
       </p>

@@ -7,7 +7,6 @@ import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/Store/OrderSummary/OrderSummary";
 import Spinner from "../../components/UI/Spinner/Spinner";
 /* eslint-disable */
-
 import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 import * as actions from "../../store/actions/index";
 import axios from "../../axios-orders";
@@ -16,13 +15,13 @@ const storeBuilder = props => {
   const [purchasing, setPurchasing] = useState(false);
   useEffect(() => {
     props.onInitList();
-    props.onInitIngredients();
+    props.onInitInventory();
   }, []);
 
-  const updatePurchaseState = ingredients => {
-    const sum = Object.keys(ingredients)
+  const updatePurchaseState = inventory => {
+    const sum = Object.keys(inventory)
       .map(igKey => {
-        return ingredients[igKey];
+        return inventory[igKey];
       })
       .reduce((sum, el) => {
         return sum + el;
@@ -30,10 +29,10 @@ const storeBuilder = props => {
     return sum > 0;
   };
 
-  const updateCartState = ingredients => {
-    const sum = Object.keys(ingredients)
+  const updateCartState = inventory => {
+    const sum = Object.keys(inventory)
       .map(igKey => {
-        return ingredients[igKey];
+        return inventory[igKey];
       })
       .reduce((sum, el) => {
         return sum + el;
@@ -60,24 +59,24 @@ const storeBuilder = props => {
   };
 
   const disabledInfo = {
-    ...props.ings
+    ...props.invent
   };
   for (let key in disabledInfo) {
     disabledInfo[key] = disabledInfo[key] <= 0;
   }
   let orderSummary = null;
-  let store = props.error ? <p>Ingredients can't be loaded!</p> : <Spinner />;
+  let store = props.error ? <p>Inventory can't be loaded!</p> : <Spinner />;
 
-  if (props.ings) {
+  if (props.invent) {
     store = (
       <Fragment>
-        <Store ingredients={props.ings} listItems={props.items} />
+        <Store inventory={props.invent} listItems={props.items} />
         <BuildControls
-          ingredients={updateCartState(props.ings)}
-          ingredientAdded={props.onIngredientAdded}
-          ingredientRemoved={props.onIngredientRemoved}
+          inventory={updateCartState(props.invent)}
+          inventoryAdded={props.onInventoryAdded}
+          inventoryRemoved={props.onInventoryRemoved}
           disabled={disabledInfo}
-          purchasable={updatePurchaseState(props.ings)}
+          purchasable={updatePurchaseState(props.invent)}
           ordered={purchaseHandler}
           isAuth={props.isAuthenticated}
           price={props.price}
@@ -86,7 +85,7 @@ const storeBuilder = props => {
     );
     orderSummary = (
       <OrderSummary
-        ingredients={props.ings}
+        inventory={props.invent}
         listItems={props.items}
         price={props.price}
         purchaseCancelled={purchaseCancelHandler}
@@ -106,7 +105,7 @@ const storeBuilder = props => {
 
 const mapStateToProps = state => {
   return {
-    ings: state.storeBuilder.ingredients,
+    invent: state.storeBuilder.inventory,
     items: state.storeBuilder.listItems,
     price: state.storeBuilder.totalPrice,
     error: state.storeBuilder.error,
@@ -116,9 +115,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onIngredientAdded: ingName => dispatch(actions.addIngredient(ingName)),
-    onIngredientRemoved: ingName => dispatch(actions.removeIngredient(ingName)),
-    onInitIngredients: () => dispatch(actions.initIngredients()),
+    onInventoryAdded: ingName => dispatch(actions.addInventory(ingName)),
+    onInventoryRemoved: ingName => dispatch(actions.removeInventory(ingName)),
+    onInitInventory: () => dispatch(actions.initInventory()),
     onInitList: () => dispatch(actions.initList()),
     onInitPurchase: () => dispatch(actions.purchaseInit()),
     onSetAuthRedirectPath: path => dispatch(actions.setAuthRedirectPath(path))

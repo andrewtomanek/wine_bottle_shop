@@ -1,7 +1,7 @@
 export {
-  addIngredient,
-  removeIngredient,
-  initIngredients,
+  addInventory,
+  removeInventory,
+  initInventory,
   initList
 } from "./storeBuilder";
 export { purchaseStore, purchaseInit, fetchOrders } from "./order";

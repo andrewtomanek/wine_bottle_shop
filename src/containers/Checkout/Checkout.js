@@ -15,13 +15,13 @@ const checkout = props => {
   };
 
   let summary = <Redirect to="/" />;
-  if (props.ings) {
+  if (props.invent) {
     const purchasedRedirect = props.purchased ? <Redirect to="/" /> : null;
     summary = (
       <div>
         {purchasedRedirect}
         <CheckoutSummary
-          ingredients={props.ings}
+          inventory={props.invent}
           listItems={props.items}
           checkoutCancelled={checkoutCancelledHandler}
           checkoutContinued={checkoutContinuedHandler}
@@ -38,7 +38,7 @@ const checkout = props => {
 
 const mapStateToProps = state => {
   return {
-    ings: state.storeBuilder.ingredients,
+    invent: state.storeBuilder.inventory,
     items: state.storeBuilder.listItems,
     purchased: state.order.purchased
   };

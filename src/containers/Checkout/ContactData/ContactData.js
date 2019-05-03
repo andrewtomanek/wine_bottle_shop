@@ -104,7 +104,7 @@ const ContactData = props => {
       formData[formElementIdentifier] = orderForm[formElementIdentifier].value;
     }
     const order = {
-      ingredients: props.ings,
+      inventory: props.invent,
       price: props.price,
       orderData: formData,
       userId: props.userId
@@ -173,7 +173,7 @@ const ContactData = props => {
 
 const mapStateToProps = state => {
   return {
-    ings: state.storeBuilder.ingredients,
+    invent: state.storeBuilder.inventory,
     price: state.storeBuilder.totalPrice,
     loading: state.order.loading,
     token: state.auth.token,

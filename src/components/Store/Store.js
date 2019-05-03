@@ -4,9 +4,9 @@ import classes from "./Store.module.css";
 import StoreItem from "./StoreItem/StoreItem";
 
 const store = props => {
-  let transformedItems = Object.keys(props.ingredients)
+  let transformedItems = Object.keys(props.inventory)
     .map(igKey => {
-      return [...Array(props.ingredients[igKey])].map((_, i) => {
+      return [...Array(props.inventory[igKey])].map((_, i) => {
         return (
           <StoreItem
             key={igKey + i}

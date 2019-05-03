@@ -8,10 +8,7 @@ const checkoutSummary = props => {
   return (
     <div className={classes.CheckoutSummary}>
       <div className={classes.CheckoutBox}>
-        <CheckoutList
-          ingredients={props.ingredients}
-          listItems={props.listItems}
-        />
+        <CheckoutList inventory={props.inventory} listItems={props.listItems} />
       </div>
       <div className={classes.CheckoutControls}>
         <Button btnType="Danger" clicked={props.checkoutCancelled}>
