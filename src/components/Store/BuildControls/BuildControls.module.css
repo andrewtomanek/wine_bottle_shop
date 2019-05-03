@@ -1,15 +1,16 @@
 .BuildControls {
+  grid-area: 2/1/2/1;
   display: grid;
   align-items: center;
   margin: 0;
-  padding: 0 2rem;
+  padding: 1rem 0.2rem;
   background-color: var(--wine);
 }
 
 .BuildBox {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(4, minmax(10vw, 1fr));
+  grid-template-columns: repeat(2, minmax(10vw, 1fr));
   grid-template-rows: repeat(auto-fill, minmax(5vh, 1fr));
   align-items: center;
   padding: 0;
@@ -38,13 +39,12 @@
 
 .OrderButton {
   background-color: var(--green);
-  outline: none;
   cursor: pointer;
-  border: 0.2rem solid var(--wine);
+  border: 0.2rem solid var(--red);
   color: white;
   font-family: inherit;
   font-size: 1.1rem;
-  padding: 0.3rem 2rem;
+  padding: 0rem 2rem;
   box-shadow: 2px 2px 2px #966909;
 }
 
@@ -75,5 +75,16 @@
   }
   100% {
     transform: scale(1);
+  }
+}
+
+@media (min-width: 500px) {
+  .BuildBox {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(10vw, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(5vh, 1fr));
+    align-items: center;
+    padding: 0;
   }
 }

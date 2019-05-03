@@ -7,6 +7,7 @@ import axios from "../../axios-orders";
 import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 import * as actions from "../../store/actions/index";
 import Spinner from "../../components/UI/Spinner/Spinner";
+import classes from "./Orders.module.css";
 
 const Orders = props => {
   useEffect(() => {
@@ -19,7 +20,7 @@ const Orders = props => {
       <Order key={order.id} inventory={order.inventory} price={order.price} />
     ));
   }
-  return <div>{orders}</div>;
+  return <div className={classes.OrderList}>{orders}</div>;
 };
 
 const mapStateToProps = state => {

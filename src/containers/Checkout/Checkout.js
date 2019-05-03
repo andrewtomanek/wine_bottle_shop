@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import CheckoutSummary from "../../components/Order/CheckoutSummary/CheckoutSummary";
 import ContactData from "./ContactData/ContactData";
+import classes from "./Checkout.module.css";
 
 const checkout = props => {
   const checkoutCancelledHandler = () => {
@@ -18,7 +19,7 @@ const checkout = props => {
   if (props.invent) {
     const purchasedRedirect = props.purchased ? <Redirect to="/" /> : null;
     summary = (
-      <div>
+      <div className={classes.Checkout}>
         {purchasedRedirect}
         <CheckoutSummary
           inventory={props.invent}

@@ -10,35 +10,51 @@
 }
 
 .shopItem1 {
+  width: 100%;
+  height: 20vh;
   background: center / contain no-repeat
     url("../../../assets/images/cont/shopItem1.png");
 }
 
 .shopItem2 {
+  width: 100%;
+  height: 20vh;
   background: center / contain no-repeat
     url("../../../assets/images/cont/shopItem2.png");
 }
 .shopItem3 {
+  width: 100%;
+  height: 20vh;
   background: center / contain no-repeat
     url("../../../assets/images/cont/shopItem3.png");
 }
 .shopItem4 {
+  width: 100%;
+  height: 20vh;
   background: center / contain no-repeat
     url("../../../assets/images/cont/shopItem4.png");
 }
 .shopItem5 {
+  width: 100%;
+  height: 20vh;
   background: center / contain no-repeat
     url("../../../assets/images/cont/shopItem5.png");
 }
 .shopItem6 {
+  width: 100%;
+  height: 20vh;
   background: center / contain no-repeat
     url("../../../assets/images/cont/shopItem6.png");
 }
 .shopItem7 {
+  width: 100%;
+  height: 20vh;
   background: center / contain no-repeat
     url("../../../assets/images/cont/shopItem7.png");
 }
 .shopItem8 {
+  width: 100%;
+  height: 20vh;
   background: center / contain no-repeat
     url("../../../assets/images/cont/shopItem8.png");
 }

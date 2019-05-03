@@ -18,16 +18,18 @@ const Layout = props => {
 
   return (
     <Fragment>
-      <Toolbar
-        isAuth={props.isAuthenticated}
-        drawerToggleClicked={sideDrawerToggleHandler}
-      />
-      <SideDrawer
-        isAuth={props.isAuthenticated}
-        open={sideDrawerIsVisible}
-        closed={sideDrawerClosedHandler}
-      />
-      <main className={classes.Content}>{props.children}</main>
+      <main className={classes.Content}>
+        <SideDrawer
+          isAuth={props.isAuthenticated}
+          open={sideDrawerIsVisible}
+          closed={sideDrawerClosedHandler}
+        />
+        <Toolbar
+          isAuth={props.isAuthenticated}
+          drawerToggleClicked={sideDrawerToggleHandler}
+        />
+        {props.children}
+      </main>
     </Fragment>
   );
 };

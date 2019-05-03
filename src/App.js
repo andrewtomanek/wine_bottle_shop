@@ -27,7 +27,7 @@ const App = props => {
   let routes = (
     <Switch>
       <Route path="/auth" render={props => <Auth {...props} />} />
-      <Route path="/" exact render={props => <StoreBuilder {...props} />} />
+      <Route path="/" exact component={StoreBuilder} />
       <Redirect to="/" />
     </Switch>
   );

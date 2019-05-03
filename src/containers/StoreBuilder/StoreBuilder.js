@@ -70,7 +70,6 @@ const storeBuilder = props => {
   if (props.invent) {
     store = (
       <Fragment>
-        <Store inventory={props.invent} listItems={props.items} />
         <BuildControls
           inventory={updateCartState(props.invent)}
           inventoryAdded={props.onInventoryAdded}
@@ -81,6 +80,7 @@ const storeBuilder = props => {
           isAuth={props.isAuthenticated}
           price={props.price}
         />
+        <Store inventory={props.invent} listItems={props.items} />
       </Fragment>
     );
     orderSummary = (

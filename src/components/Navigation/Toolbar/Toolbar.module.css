@@ -1,4 +1,5 @@
 .Toolbar {
+  grid-area: 1/1/1/1;
   height: 10vh;
   width: 100%;
   background-color: var(--red);
