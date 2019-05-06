@@ -25,6 +25,6 @@ export function* watchStoreBuilder() {
 }
 
 export function* watchOrder() {
-  yield takeLatest(actionTypes.PURCHASE_BURGER, purchaseStoreSaga);
+  yield takeLatest(actionTypes.PURCHASE_INVENTORY, purchaseStoreSaga);
   yield takeEvery(actionTypes.FETCH_ORDERS, fetchOrdersSaga);
 }

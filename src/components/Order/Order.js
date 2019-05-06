@@ -4,10 +4,10 @@ import classes from "./Order.module.css";
 
 const order = props => {
   const inventory = [];
-
+  console.log(props);
   for (let inventoryName in props.inventory) {
     inventory.push({
-      name: inventoryName,
+      name: props.listItems[inventoryName],
       amount: props.inventory[inventoryName]
     });
   }

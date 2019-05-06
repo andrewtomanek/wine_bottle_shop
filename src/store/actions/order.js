@@ -2,7 +2,7 @@ import * as actionTypes from "./actionTypes";
 
 export const purchaseStoreSuccess = (id, orderData) => {
   return {
-    type: actionTypes.PURCHASE_BURGER_SUCCESS,
+    type: actionTypes.PURCHASE_INVENTORY_SUCCESS,
     orderId: id,
     orderData: orderData
   };
@@ -10,20 +10,20 @@ export const purchaseStoreSuccess = (id, orderData) => {
 
 export const purchaseStoreFail = error => {
   return {
-    type: actionTypes.PURCHASE_BURGER_FAIL,
+    type: actionTypes.PURCHASE_INVENTORY_FAIL,
     error: error
   };
 };
 
 export const purchaseStoreStart = () => {
   return {
-    type: actionTypes.PURCHASE_BURGER_START
+    type: actionTypes.PURCHASE_INVENTORY_START
   };
 };
 
 export const purchaseStore = (orderData, token) => {
   return {
-    type: actionTypes.PURCHASE_BURGER,
+    type: actionTypes.PURCHASE_INVENTORY,
     orderData: orderData,
     token: token
   };

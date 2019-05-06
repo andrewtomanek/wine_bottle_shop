@@ -108,6 +108,7 @@ const ContactData = props => {
 
     const order = {
       inventory: props.invent,
+      listItems: props.list,
       price: props.price,
       orderData: formData,
       userId: props.userId
@@ -177,6 +178,7 @@ const ContactData = props => {
 const mapStateToProps = state => {
   return {
     invent: state.storeBuilder.inventory,
+    list: state.storeBuilder.listItems,
     price: state.storeBuilder.totalPrice,
     loading: state.order.loading,
     token: state.auth.token,

@@ -30,7 +30,6 @@ const storeBuilder = props => {
   };
 
   const updateCartState = inventory => {
-    console.log(inventory);
     const sum = Object.keys(inventory)
       .map(igKey => {
         return inventory[igKey];

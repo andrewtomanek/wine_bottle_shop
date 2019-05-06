@@ -10,6 +10,7 @@ import Spinner from "../../components/UI/Spinner/Spinner";
 import classes from "./Orders.module.css";
 
 const Orders = props => {
+  console.log(props);
   useEffect(() => {
     props.onFetchOrders(props.token, props.userId);
   }, []);
@@ -17,7 +18,12 @@ const Orders = props => {
   let orders = <Spinner />;
   if (!props.loading) {
     orders = props.orders.map(order => (
-      <Order key={order.id} inventory={order.inventory} price={order.price} />
+      <Order
+        key={order.id}
+        inventory={order.inventory}
+        listItems={order.listItems}
+        price={order.price}
+      />
     ));
   }
   return <div className={classes.OrderList}>{orders}</div>;
