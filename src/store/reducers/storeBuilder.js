@@ -9,7 +9,7 @@ const initialState = {
   building: false
 };
 
-const INGREDIENT_PRICES = {
+const INVENTORY_PRICES = {
   shopItem1: 50.0,
   shopItem2: 40.0,
   shopItem3: 70.0,
@@ -21,13 +21,13 @@ const INGREDIENT_PRICES = {
 };
 
 const addInventory = (state, action) => {
-  const updatedIngredient = {
+  const updatedInventory = {
     [action.inventoryName]: state.inventory[action.inventoryName] + 1
   };
-  const updatedInventory = updateObject(state.inventory, updatedIngredient);
+  const updatedInventorys = updateObject(state.inventory, updatedInventory);
   const updatedState = {
-    inventory: updatedInventory,
-    totalPrice: state.totalPrice + INGREDIENT_PRICES[action.inventoryName],
+    inventory: updatedInventorys,
+    totalPrice: state.totalPrice + INVENTORY_PRICES[action.inventoryName],
     building: true
   };
   return updateObject(state, updatedState);
@@ -40,7 +40,7 @@ const removeInventory = (state, action) => {
   const updatedIngs = updateObject(state.inventory, updatedIng);
   const updatedSt = {
     inventory: updatedIngs,
-    totalPrice: state.totalPrice - INGREDIENT_PRICES[action.inventoryName],
+    totalPrice: state.totalPrice + INVENTORY_PRICES[action.inventoryName],
     building: true
   };
   return updateObject(state, updatedSt);
@@ -58,7 +58,7 @@ const setInventory = (state, action) => {
       shopItem7: action.inventory.shopItem7,
       shopItem8: action.inventory.shopItem8
     },
-    totalPrice: 4,
+    totalPrice: 100,
     error: false,
     building: false
   });
@@ -89,9 +89,9 @@ const fetchListFailed = (state, action) => {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.ADD_INGREDIENT:
+    case actionTypes.ADD_INVENTORY:
       return addInventory(state, action);
-    case actionTypes.REMOVE_INGREDIENT:
+    case actionTypes.REMOVE_INVENTORY:
       return removeInventory(state, action);
     case actionTypes.SET_INVENTORY:
       return setInventory(state, action);

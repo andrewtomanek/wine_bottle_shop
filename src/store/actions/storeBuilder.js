@@ -1,16 +1,15 @@
 import * as actionTypes from "./actionTypes";
-import axios from "../../axios-orders";
 
 export const addInventory = name => {
   return {
-    type: actionTypes.ADD_INGREDIENT,
+    type: actionTypes.ADD_INVENTORY,
     inventoryName: name
   };
 };
 
 export const removeInventory = name => {
   return {
-    type: actionTypes.REMOVE_INGREDIENT,
+    type: actionTypes.REMOVE_INVENTORY,
     inventoryName: name
   };
 };
@@ -28,41 +27,14 @@ export const fetchInventoryFailed = () => {
   };
 };
 
-export const setList = listItems => {
-  return {
-    type: actionTypes.SET_LIST,
-    listItems: listItems
-  };
-};
-
-export const fetchListFailed = () => {
-  return {
-    type: actionTypes.FETCH_LIST_FAILED
-  };
-};
-
 export const initInventory = () => {
-  return dispatch => {
-    axios
-      .get("https://bottle-2f0f4.firebaseio.com/inventory.json")
-      .then(response => {
-        dispatch(setInventory(response.data));
-      })
-      .catch(error => {
-        dispatch(fetchInventoryFailed());
-      });
+  return {
+    type: actionTypes.INIT_INVENTORY
   };
 };
 
 export const initList = () => {
-  return dispatch => {
-    axios
-      .get("https://bottle-2f0f4.firebaseio.com/list.json")
-      .then(response => {
-        dispatch(setList(response.data));
-      })
-      .catch(error => {
-        dispatch(fetchListFailed());
-      });
+  return {
+    type: actionTypes.INIT_LIST
   };
 };
