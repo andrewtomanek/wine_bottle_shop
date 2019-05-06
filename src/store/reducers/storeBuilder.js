@@ -4,7 +4,7 @@ import { updateObject } from "../../shared/utility";
 const initialState = {
   inventory: null,
   listItems: "",
-  totalPrice: 4,
+  totalPrice: null,
   error: false,
   building: false
 };

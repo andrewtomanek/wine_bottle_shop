@@ -3,10 +3,11 @@ import classes from "./OrderSummary.module.css";
 import Button from "../../UI/Button/Button";
 
 const orderSummary = props => {
+  console.log(props);
   const inventorySummary = Object.keys(props.inventory).map(igKey => {
     return (
       <div className={classes.OrderItem} key={igKey}>
-        {/* <span className={classes.OrderName}>{props.listItems[igKey]}</span> */}
+        <span className={classes.OrderName}>{props.listItems[igKey]}</span>
         <span className={classes.OrderPrice}> {props.inventory[igKey]}</span>
       </div>
     );

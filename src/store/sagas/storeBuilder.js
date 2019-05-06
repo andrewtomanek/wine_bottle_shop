@@ -18,8 +18,8 @@ export function* initListSaga(action) {
     const response = yield axios.get(
       "https://bottle-2f0f4.firebaseio.com/list.json"
     );
-    yield put(actions.setInventory(response.data));
+    yield put(actions.setList(response.data));
   } catch (error) {
-    yield put(actions.fetchInventoryFailed());
+    yield put(actions.fetchListFailed());
   }
 }

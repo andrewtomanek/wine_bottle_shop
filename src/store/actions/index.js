@@ -4,7 +4,9 @@ export {
   initInventory,
   initList,
   setInventory,
-  fetchInventoryFailed
+  setList,
+  fetchInventoryFailed,
+  fetchListFailed
 } from "./storeBuilder";
 export {
   purchaseStore,

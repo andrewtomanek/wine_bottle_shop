@@ -13,7 +13,7 @@
   grid-template-columns: repeat(2, minmax(10vw, 1fr));
   grid-template-rows: repeat(auto-fill, minmax(5vh, 1fr));
   align-items: center;
-  padding: 0;
+  padding: 0.7em 0 0.1rem;
 }
 
 .ControlBox {
@@ -27,10 +27,8 @@
 
 .PriceSum {
   background-color: var(--wine);
-  outline: none;
   border: 0.2rem solid var(--red);
   color: var(--red);
-  font-family: inherit;
   font-size: 1rem;
   font-weight: 700;
   padding: 0.1rem 0.2rem;
@@ -38,13 +36,14 @@
 }
 
 .OrderButton {
+  height: 70%;
   background-color: var(--green);
   cursor: pointer;
   border: 0.2rem solid var(--red);
   color: white;
-  font-family: inherit;
   font-size: 1.1rem;
   padding: 0rem 2rem;
+  margin: 0;
   box-shadow: 2px 2px 2px #966909;
 }
 
@@ -85,6 +84,6 @@
     grid-template-columns: repeat(4, minmax(10vw, 1fr));
     grid-template-rows: repeat(auto-fill, minmax(5vh, 1fr));
     align-items: center;
-    padding: 0;
+    padding: 0.7em 0 0.1rem;
   }
 }

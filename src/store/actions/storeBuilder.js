@@ -33,8 +33,20 @@ export const initInventory = () => {
   };
 };
 
+export const setList = listItems => {
+  return {
+    type: actionTypes.SET_LIST,
+    listItems: listItems
+  };
+};
 export const initList = () => {
   return {
     type: actionTypes.INIT_LIST
+  };
+};
+
+export const fetchListFailed = () => {
+  return {
+    type: actionTypes.FETCH_LIST_FAILED
   };
 };

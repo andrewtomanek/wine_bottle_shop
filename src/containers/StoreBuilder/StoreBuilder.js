@@ -6,10 +6,10 @@ import BuildControls from "../../components/Store/BuildControls/BuildControls";
 import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/Store/OrderSummary/OrderSummary";
 import Spinner from "../../components/UI/Spinner/Spinner";
-/* eslint-disable */
 import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 import * as actions from "../../store/actions/index";
 import axios from "../../axios-orders";
+/* eslint-disable */
 
 const storeBuilder = props => {
   const [purchasing, setPurchasing] = useState(false);
@@ -30,6 +30,7 @@ const storeBuilder = props => {
   };
 
   const updateCartState = inventory => {
+    console.log(inventory);
     const sum = Object.keys(inventory)
       .map(igKey => {
         return inventory[igKey];
