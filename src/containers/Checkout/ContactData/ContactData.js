@@ -104,8 +104,6 @@ const ContactData = props => {
       formData[formElementIdentifier] = orderForm[formElementIdentifier].value;
     }
 
-    console.log(props);
-
     const order = {
       inventory: props.invent,
       listItems: props.list,

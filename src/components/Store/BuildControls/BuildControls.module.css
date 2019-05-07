@@ -35,14 +35,21 @@
   box-shadow: 2px 2px 2px #966909;
 }
 
+.CartLogo {
+  width: 80%;
+  height: 80%;
+  filter: invert(100%);
+}
+
 .OrderButton {
   height: 70%;
+  width: 70%;
   background-color: var(--green);
   cursor: pointer;
-  border: 0.2rem solid var(--red);
+  border: 0.2rem solid white;
   color: white;
   font-size: 1.1rem;
-  padding: 0rem 2rem;
+  padding: 0rem;
   margin: 0;
   box-shadow: 2px 2px 2px #966909;
 }
@@ -50,7 +57,7 @@
 .OrderButton:hover,
 .OrderButton:active {
   background-color: var(--green);
-  border: 0.2rem solid var(--wine);
+  border: 0.2rem solid var(--red);
   color: #966909;
 }
 

@@ -1,5 +1,5 @@
 import React from "react";
-
+import cartLogo from "../../../assets/images/icon/shopping-cart.png";
 import classes from "./BuildControls.module.css";
 import BuildControl from "./BuildControl/BuildControl";
 const controls = [
@@ -41,7 +41,11 @@ const buildControls = props => (
         }
         onClick={props.ordered}
       >
-        {props.isAuth ? "Objednat" : "Přihlásit"}
+        {props.isAuth ? (
+          <img className={classes.CartLogo} src={cartLogo} alt="cartLogo" />
+        ) : (
+          "Přihlásit"
+        )}
       </button>
       <p className={classes.PriceSum}>
         {props.inventory !== 0 && props.inventory % 6 === 0

@@ -4,7 +4,6 @@ import classes from "./Order.module.css";
 
 const order = props => {
   const inventory = [];
-  console.log(props);
   for (let inventoryName in props.inventory) {
     inventory.push({
       name: props.listItems[inventoryName],
@@ -14,26 +13,21 @@ const order = props => {
 
   const inventoryOutput = inventory.map(ig => {
     return (
-      <span
-        style={{
-          textTransform: "capitalize",
-          display: "inline-block",
-          margin: "0 8px",
-          border: "1px solid #ccc",
-          padding: "5px"
-        }}
-        key={ig.name}
-      >
-        {ig.name} ({ig.amount})
-      </span>
+      <div className={classes.OrderItem} key={ig.name}>
+        <p className={classes.OrderText}>
+          {ig.name}
+          {" : "}
+          {ig.amount}
+        </p>
+      </div>
     );
   });
 
   return (
-    <div className={classes.Order}>
-      <p>Inventory: {inventoryOutput}</p>
-      <p>
-        Price: <strong>USD {Number.parseFloat(props.price).toFixed(2)}</strong>
+    <div className={classes.OrderBox}>
+      <div className={classes.OrderInventory}>{inventoryOutput}</div>
+      <p className={classes.OrderPrice}>
+        Cena {Number.parseFloat(props.price).toFixed(2)}
       </p>
     </div>
   );

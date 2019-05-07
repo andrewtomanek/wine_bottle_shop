@@ -1,7 +1,17 @@
 .CheckoutSummary {
   width: 100vw;
   display: grid;
+  grid-gap: 2rem;
   grid-auto-flow: row;
+  align-items: center;
+  justify-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.CheckoutBox {
+  width: 100vw;
+  display: grid;
   align-items: center;
   align-content: space-around;
   justify-content: space-around;
