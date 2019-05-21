@@ -12,10 +12,10 @@ const checkoutSummary = props => {
       </div>
       <div className={classes.CheckoutControls}>
         <Button btnType="Danger" clicked={props.checkoutCancelled}>
-          CANCEL
+          Zrušit
         </Button>
         <Button btnType="Success" clicked={props.checkoutContinued}>
-          CONTINUE
+          Pokračovat
         </Button>
       </div>
     </div>

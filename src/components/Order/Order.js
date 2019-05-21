@@ -14,11 +14,8 @@ const order = props => {
   const inventoryOutput = inventory.map(ig => {
     return (
       <div className={classes.OrderItem} key={ig.name}>
-        <p className={classes.OrderText}>
-          {ig.name}
-          {" : "}
-          {ig.amount}
-        </p>
+        <p className={classes.OrderText}>{ig.name}</p>
+        <p className={classes.OrderAmount}>{ig.amount}</p>
       </div>
     );
   });

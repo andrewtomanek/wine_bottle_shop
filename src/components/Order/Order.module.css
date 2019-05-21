@@ -17,20 +17,21 @@
 
 .OrderInventory {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   align-content: space-around;
   justify-content: space-around;
   padding: 0.3rem 1rem;
 }
 
 .OrderItem {
+  display: grid;
+  grid-template-columns: 1fr 5vw;
   outline: none;
+  border: 0.1rem solid var(--red);
+  border-right: 0.1rem solid var(--red);
+  border-bottom: 0.1rem solid var(--red);
   color: var(--red);
-  font-family: inherit;
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: 600;
   padding: 0.1rem 0.5rem;
   margin: 0rem;
 }
@@ -38,16 +39,40 @@
 .OrderText {
   background-color: var(--wine);
   color: var(--red);
+  font-weight: 700;
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.1rem 0.2rem;
+}
+
+.OrderAmount {
+  background-color: var(--wine);
+  color: var(--red);
+  font-weight: 700;
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: right;
+  padding: 0.1rem 0.2rem;
+}
+
+.OrderPrice {
+  background-color: var(--red);
+  border: 0.2rem solid var(--wine);
+  color: var(--wine);
   font-size: 1rem;
   font-weight: 700;
   padding: 0.1rem 0.2rem;
 }
 
-.OrderPrice {
-  background-color: var(--wine);
-  border: 0.2rem solid var(--red);
-  color: var(--red);
-  font-size: 1rem;
-  font-weight: 700;
-  padding: 0.1rem 0.2rem;
+@media (min-width: 600px) {
+  .OrderInventory {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    align-content: space-around;
+    justify-content: space-around;
+    padding: 0.3rem 1rem;
+  }
 }

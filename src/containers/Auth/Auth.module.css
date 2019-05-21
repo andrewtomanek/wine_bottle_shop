@@ -5,8 +5,6 @@
   grid-auto-flow: row;
   margin: 0;
   text-align: center;
-  box-shadow: 0 2px 3px #ccc;
-  border: 0.1rem solid #eee;
   padding: 1rem;
   box-sizing: border-box;
 }

@@ -4,7 +4,7 @@
   height: 100%;
   display: grid;
   grid-auto-flow: row;
-  align-items: center;
+  justify-items: center;
   padding: 0;
 }
 
@@ -17,7 +17,7 @@
 }
 
 .OrderControls {
-  width: 100%;
+  width: 90%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr;
@@ -30,9 +30,10 @@
 
 .OrderItem {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 5vw;
   align-content: space-around;
   justify-content: space-around;
+  justify-items: start;
   padding: 0.3rem 1rem;
 }
 
@@ -51,7 +52,7 @@
   outline: none;
   color: var(--red);
   font-family: inherit;
-  text-align: left;
+  text-align: center;
   font-size: 1.1rem;
   font-weight: 700;
   padding: 0.3rem 0.5rem;

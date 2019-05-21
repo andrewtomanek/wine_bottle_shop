@@ -18,11 +18,11 @@ const orderSummary = props => {
       <div className={classes.OrderBox}>{inventorySummary}</div>
       <div className={classes.OrderControls}>
         <Button btnType="Danger" clicked={props.purchaseCancelled}>
-          CANCEL
+          Zrušit
         </Button>
         <p className={classes.OrderPrice}>Cena: {props.price.toFixed(2)}</p>
         <Button btnType="Success" clicked={props.purchaseContinued}>
-          CONTINUE
+          Pokračovat
         </Button>
       </div>
     </div>

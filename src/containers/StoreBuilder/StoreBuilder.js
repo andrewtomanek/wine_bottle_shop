@@ -65,7 +65,7 @@ const storeBuilder = props => {
     disabledInfo[key] = disabledInfo[key] <= 0;
   }
   let orderSummary = null;
-  let store = props.error ? <p>Inventory can't be loaded!</p> : <Spinner />;
+  let store = props.error ? <p>Nelze nahrát zboží!</p> : <Spinner />;
 
   if (props.invent) {
     store = (

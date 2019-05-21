@@ -16,7 +16,7 @@ const ContactData = props => {
       elementType: "input",
       elementConfig: {
         type: "text",
-        placeholder: "Your Name"
+        placeholder: "Jméno a Příjmení"
       },
       value: "",
       validation: {
@@ -29,7 +29,7 @@ const ContactData = props => {
       elementType: "input",
       elementConfig: {
         type: "text",
-        placeholder: "Street"
+        placeholder: "Ulice, č.p."
       },
       value: "",
       validation: {
@@ -42,7 +42,7 @@ const ContactData = props => {
       elementType: "input",
       elementConfig: {
         type: "text",
-        placeholder: "ZIP Code"
+        placeholder: "PSČ"
       },
       value: "",
       validation: {
@@ -58,7 +58,7 @@ const ContactData = props => {
       elementType: "input",
       elementConfig: {
         type: "text",
-        placeholder: "Country"
+        placeholder: "Město"
       },
       value: "",
       validation: {
@@ -71,7 +71,7 @@ const ContactData = props => {
       elementType: "input",
       elementConfig: {
         type: "email",
-        placeholder: "Your E-Mail"
+        placeholder: "E-Mail"
       },
       value: "",
       validation: {
@@ -85,11 +85,12 @@ const ContactData = props => {
       elementType: "select",
       elementConfig: {
         options: [
-          { value: "fastest", displayValue: "Fastest" },
-          { value: "cheapest", displayValue: "Cheapest" }
+          { value: "cash", displayValue: "Platba  Dobírkou" },
+          { value: "card", displayValue: "Platba Hotově/kartou" },
+          { value: "online", displayValue: "Online platba kartou" }
         ]
       },
-      value: "fastest",
+      value: "online",
       validation: {},
       valid: true
     }
@@ -158,7 +159,7 @@ const ContactData = props => {
         />
       ))}
       <Button btnType="Success" disabled={!formIsValid}>
-        ORDER
+        Objednat
       </Button>
     </form>
   );
@@ -167,7 +168,7 @@ const ContactData = props => {
   }
   return (
     <div className={classes.ContactData}>
-      <h4>Enter your Contact Data</h4>
+      <h4>Fakturační a dodací údaje</h4>
       {form}
     </div>
   );
