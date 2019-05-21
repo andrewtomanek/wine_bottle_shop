@@ -1,8 +1,7 @@
 .Content {
   display: grid;
-  grid: 10vh 30vh 1fr / 1fr;
+  grid: 10vh 40vh 1fr / 1fr;
   justify-items: center;
-  align-items: center;
   justify-content: space-around;
   align-content: space-around;
   margin: 0;

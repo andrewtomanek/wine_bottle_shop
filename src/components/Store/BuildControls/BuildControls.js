@@ -28,8 +28,14 @@ const buildControls = props => (
       ))}
     </div>
     <div className={classes.ControlBox}>
-      <p className={classes.PriceSum}>Celkem: {props.price.toFixed(2)}Kč</p>{" "}
-      <p className={classes.PriceSum}>Množství: {props.inventory}</p>
+      <p className={classes.PriceSum}>
+        Celkem: <br />
+        {props.price.toFixed(2)}Kč
+      </p>{" "}
+      <p className={classes.PriceSum}>
+        Množství: <br />
+        {props.inventory}
+      </p>
       <button
         className={classes.OrderButton}
         disabled={
@@ -56,7 +62,7 @@ const buildControls = props => (
         {Number.isInteger(props.inventory / 6)
           ? props.inventory / 6
           : Math.floor(props.inventory / 6)}
-        Balení
+        <br /> Balení
       </p>
     </div>
   </div>
