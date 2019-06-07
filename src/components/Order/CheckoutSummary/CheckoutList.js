@@ -21,7 +21,7 @@ const store = props => {
     }, []);
 
   if (transformedItems.length === 0) {
-    transformedItems = <p>Naplň přepravní box</p>;
+    transformedItems = <p className={classes.Empty}>Žádné položky</p>;
   }
   return <div className={classes.CheckoutList}>{transformedItems}</div>;
 };

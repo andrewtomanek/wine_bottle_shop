@@ -9,6 +9,5 @@
   margin: 0;
   overflow: hidden;
   background-color: var(--wine);
-  background: center / cover no-repeat
-    url("../../assets/images/bkg/light_wood.jpg");
+  background: center / cover no-repeat url("/img/bkg/light_wood.jpg");
 }

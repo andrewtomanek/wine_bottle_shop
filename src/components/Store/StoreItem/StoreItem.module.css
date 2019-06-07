@@ -12,42 +12,34 @@
 
 .shopItem1 {
   height: 100%;
-  background: center / contain no-repeat
-    url("../../../assets/images/cont/shopItem1.png");
+  background: center / contain no-repeat url("/img/cont/shopItem1.png");
 }
 
 .shopItem2 {
   height: 100%;
-  background: center / contain no-repeat
-    url("../../../assets/images/cont/shopItem2.png");
+  background: center / contain no-repeat url("/img/cont/shopItem2.png");
 }
 .shopItem3 {
   height: 100%;
-  background: center / contain no-repeat
-    url("../../../assets/images/cont/shopItem3.png");
+  background: center / contain no-repeat url("/img/cont/shopItem3.png");
 }
 .shopItem4 {
   height: 100%;
-  background: center / contain no-repeat
-    url("../../../assets/images/cont/shopItem4.png");
+  background: center / contain no-repeat url("/img/cont/shopItem4.png");
 }
 .shopItem5 {
   height: 100%;
-  background: center / contain no-repeat
-    url("../../../assets/images/cont/shopItem5.png");
+  background: center / contain no-repeat url("/img/cont/shopItem5.png");
 }
 .shopItem6 {
   height: 100%;
-  background: center / contain no-repeat
-    url("../../../assets/images/cont/shopItem6.png");
+  background: center / contain no-repeat url("/img/cont/shopItem6.png");
 }
 .shopItem7 {
   height: 100%;
-  background: center / contain no-repeat
-    url("../../../assets/images/cont/shopItem7.png");
+  background: center / contain no-repeat url("/img/cont/shopItem7.png");
 }
 .shopItem8 {
   height: 100%;
-  background: center / contain no-repeat
-    url("../../../assets/images/cont/shopItem8.png");
+  background: center / contain no-repeat url("/img/cont/shopItem8.png");
 }

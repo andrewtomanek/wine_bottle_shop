@@ -10,6 +10,13 @@
   margin: 0;
   overflow: hidden;
   background-color: var(--wine);
-  background: center / cover no-repeat
-    url("../../assets/images/bkg/brick-wall.jpg");
+  background: center / cover no-repeat url("/img/bkg/brick-wall.jpg");
+}
+
+.Empty {
+  color: white;
+  font-weight: 900;
+  font-size: 1.1rem;
+  width: 100%;
+  height: 100%;
 }

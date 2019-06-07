@@ -1,7 +1,7 @@
 import { put, call, delay } from "redux-saga/effects";
 import axios from "axios";
-
 import * as actions from "../actions/index";
+const API_KEY = process.env.REACT_APP_FIREBASE_KEY;
 
 export function* logoutSaga(action) {
   yield call([localStorage, "removeItem"], "token");
@@ -23,10 +23,12 @@ export function* authUserSaga(action) {
     returnSecureToken: true
   };
   let url =
-    "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyBCgo8NtmG3_QtoethGqVMDvxnzDtImJZc";
+    "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=" +
+    API_KEY;
   if (!action.isSignup) {
     url =
-      "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyBCgo8NtmG3_QtoethGqVMDvxnzDtImJZc";
+      "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=" +
+      API_KEY;
   }
   try {
     const response = yield axios.post(url, authData);
