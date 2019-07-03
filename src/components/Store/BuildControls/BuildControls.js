@@ -50,7 +50,7 @@ const buildControls = props => (
         {props.isAuth ? (
           <img className={classes.CartLogo} src={cartLogo} alt="cartLogo" />
         ) : (
-          "Přihlásit"
+          "Objednat"
         )}
       </button>
       <p className={classes.PriceSum}>

@@ -1,7 +1,6 @@
 import React, { useEffect, Suspense } from "react";
 import { Route, Switch, withRouter, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import "./App.css";
 import Layout from "./hoc/Layout/Layout";
 import StoreBuilder from "./containers/StoreBuilder/StoreBuilder";
 import Logout from "./containers/Auth/Logout/Logout";
