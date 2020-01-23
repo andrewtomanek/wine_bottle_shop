@@ -6,7 +6,6 @@ import * as actions from "../actions";
 export function* purchaseStoreSaga(action) {
   yield put(actions.purchaseStoreStart());
   try {
-    console.log(action.token)
     const response = yield axios.post(
       "/orders.json?auth=" + action.token,
       action.orderData
@@ -20,7 +19,6 @@ export function* purchaseStoreSaga(action) {
 }
 
 export function* fetchOrdersSaga(action) {
-  console.log(action.token)
   yield put(actions.fetchOrdersStart());
   const queryParams =
     "?auth=" +
