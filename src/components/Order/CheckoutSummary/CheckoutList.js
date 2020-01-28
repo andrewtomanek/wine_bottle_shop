@@ -1,16 +1,16 @@
 import React from "react";
 
 import classes from "./CheckoutList.module.css";
-import CheckoutItem from "./CheckoutItem";
+import CheckoutCard from "./CheckoutCard";
 
 const store = props => {
   let transformedItems = Object.keys(props.inventory)
     .map(igKey => {
       return [...Array(props.inventory[igKey])].map((_, i) => {
         return (
-          <CheckoutItem
+          <CheckoutCard
             key={igKey + i}
-            type={igKey}
+            itemType={igKey}
             itemName={props.listItems[igKey]}
           />
         );
