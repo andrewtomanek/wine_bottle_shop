@@ -19,6 +19,19 @@
   padding: 1rem 0rem;
 }
 
+.CheckoutContent {
+  display: grid;
+  align-items: center;
+}
+
+.CheckoutHeading {
+  text-align: center;
+  font-size: 1.3rem;
+  padding: 1rem 3rem;
+  color: var(--red);
+  background-color: var(--wine);
+}
+
 .CheckoutControls {
   width: 50%;
   display: grid;

@@ -10,6 +10,12 @@ const checkoutSummary = props => {
       <div className={classes.CheckoutBox}>
         <CheckoutList inventory={props.inventory} listItems={props.listItems} />
       </div>
+      <div className={classes.CheckoutContent}>
+        <h4 className={classes.CheckoutHeading}>
+          Potvdit kompletní obsah objednávky
+        </h4>
+      </div>
+
       <div className={classes.CheckoutControls}>
         <Button btnType="Danger" clicked={props.checkoutCancelled}>
           Zrušit
