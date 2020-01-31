@@ -1,7 +1,6 @@
 .CheckoutSummary {
   width: 100vw;
   display: grid;
-  grid-gap: 2rem;
   grid-auto-flow: row;
   align-items: center;
   justify-items: center;

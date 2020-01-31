@@ -1,5 +1,6 @@
 .ItemLabel {
   display: grid;
+  grid-area: 1/1/1/1;
   justify-content: center;
   align-content: center;
   color: white;
@@ -9,44 +10,96 @@
   height: 100%;
 }
 
-.shopItem1 {
+.BuildControl {
+  display: grid;
+  grid-area: 1/1/1/1;
+  place-self: end center;
+  grid-auto-flow: column;
+  margin: 0;
+  background-color: var(--red);
+  border: 0.2rem solid var(--wine);
+  height: 30%;
+  z-index: 1;
+}
+
+.BuildControl button {
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 900;
+  padding: 0.3rem 0.6rem;
+  margin: 0;
+  border: 1px solid #aa6817;
+  cursor: pointer;
+  outline: none;
+}
+
+.BuildControl button:disabled {
+  background-color: #ac9980;
+  border: 1px solid #7e7365;
+  color: #ccc;
+  cursor: default;
+}
+
+.BuildControl button:hover:disabled {
+  background-color: #ac9980;
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.BuildControl .Less {
+  background-color: red;
+  color: white;
+}
+
+.BuildControl .More {
+  background-color: var(--green);
+  color: white;
+}
+
+.BuildControl .Less:hover,
+.BuildControl .Less:active {
+  background-color: #daa972;
+  color: white;
+}
+
+.BuildControl .More:hover,
+.BuildControl .More:active {
+  background-color: #99703f;
+  color: white;
+}
+
+.ShopItem {
+  display: grid;
   width: 100%;
-  height: 20vh;
-  background: center / contain no-repeat url("/img/cont/shopItem1.png");
+  height: 30vh;
+  background-position-x: center;
+  background-position-y: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.shopItem1 {
+  background-image: url("/img/cont/shopItem1.png");
 }
 
 .shopItem2 {
-  width: 100%;
-  height: 20vh;
-  background: center / contain no-repeat url("/img/cont/shopItem2.png");
+  background-image: url("/img/cont/shopItem2.png");
 }
 .shopItem3 {
-  width: 100%;
-  height: 20vh;
-  background: center / contain no-repeat url("/img/cont/shopItem3.png");
+  background-image: url("/img/cont/shopItem3.png");
 }
 .shopItem4 {
-  width: 100%;
-  height: 20vh;
-  background: center / contain no-repeat url("/img/cont/shopItem4.png");
+  background-image: url("/img/cont/shopItem4.png");
 }
 .shopItem5 {
-  width: 100%;
-  height: 20vh;
-  background: center / contain no-repeat url("/img/cont/shopItem5.png");
+  background-image: url("/img/cont/shopItem5.png");
 }
 .shopItem6 {
-  width: 100%;
-  height: 20vh;
-  background: center / contain no-repeat url("/img/cont/shopItem6.png");
+  background-image: url("/img/cont/shopItem6.png");
 }
 .shopItem7 {
-  width: 100%;
-  height: 20vh;
-  background: center / contain no-repeat url("/img/cont/shopItem7.png");
+  background-image: url("/img/cont/shopItem7.png");
 }
 .shopItem8 {
-  width: 100%;
-  height: 20vh;
-  background: center / contain no-repeat url("/img/cont/shopItem8.png");
+  background-image: url("/img/cont/shopItem8.png");
 }

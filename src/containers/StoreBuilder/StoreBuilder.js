@@ -1,6 +1,5 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { connect } from "react-redux";
-
 import Store from "../../components/Store/Store";
 import BuildControls from "../../components/Store/BuildControls/BuildControls";
 import Modal from "../../components/UI/Modal/Modal";
