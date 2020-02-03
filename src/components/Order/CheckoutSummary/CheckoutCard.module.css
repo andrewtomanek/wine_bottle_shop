@@ -1,6 +1,7 @@
 .ItemLabel {
   display: grid;
   grid-area: 1/1/1/1;
+  place-self: center;
   justify-content: center;
   align-content: center;
   color: white;
@@ -17,8 +18,7 @@
   grid-auto-flow: column;
   margin: 0;
   background-color: var(--red);
-  border: 0.2rem solid var(--wine);
-  height: 30%;
+  height: 20%;
   z-index: 1;
 }
 
