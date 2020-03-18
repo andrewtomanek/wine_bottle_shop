@@ -1,5 +1,4 @@
 import React from "react";
-
 import classes from "./Store.module.css";
 import StoreCard from "./StoreCard";
 
