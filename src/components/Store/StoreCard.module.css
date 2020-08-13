@@ -10,6 +10,7 @@
 
 .ShopItem {
   display: grid;
+  margin: 0.2rem;
   width: 100%;
   height: 20vh;
   background-position-x: center;
