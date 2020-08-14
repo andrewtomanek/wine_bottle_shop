@@ -1,21 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import { reduceCartState } from "../../../shared/helpers";
 import classes from "./NavigationItems.module.css";
 import NavigationItem from "./NavigationItem/NavigationItem";
 import CartDrawer from "../CartToolbar/CartDrawer";
 
 const NavigationItems = (props) => {
-  const [isCartVisible, setIsCartVisible] = useState(false);
-
   const calculateCounter = (inventory) => {
     if (reduceCartState(inventory) === 0) return null;
     return (
-      <p
-        onClick={() => setIsCartVisible(!isCartVisible)}
+      <span
+        onClick={() => props.showCartDrawer(true)}
+        onMouseEnter={() => props.showCartDrawer(true)}
+        /* onMouseLeave={() => setIsCartVisible(false)} */
         className={classes.CartCounter}
       >
         {reduceCartState(inventory)}
-      </p>
+      </span>
     );
   };
 
@@ -24,10 +24,11 @@ const NavigationItems = (props) => {
       <NavigationItem link="/" exact>
         Obchod
       </NavigationItem>
-      {props.cartContent && isCartVisible && (
+      {props.cartContent && props.isCartDrawerOpen && (
         <CartDrawer
           inventory={props.cartContent}
-          isCartVisible={isCartVisible}
+          listItems={props.listItems}
+          price={props.price}
         />
       )}
       {props.cartContent && calculateCounter(props.cartContent)}

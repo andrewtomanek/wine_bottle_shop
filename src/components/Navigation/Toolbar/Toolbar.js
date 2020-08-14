@@ -14,7 +14,11 @@ const toolbar = (props) => (
     <nav className={classes.DesktopOnly}>
       <NavigationItems
         cartContent={props.cartContent}
+        listItems={props.listItems}
+        price={props.price}
         isAuthenticated={props.isAuth}
+        showCartDrawer={props.showCartDrawer}
+        isCartDrawerOpen={props.isCartDrawerOpen}
       />
     </nav>
   </header>

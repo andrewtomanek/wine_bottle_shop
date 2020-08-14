@@ -1,5 +1,6 @@
 import React, { useState, Fragment } from "react";
 import { connect } from "react-redux";
+import * as actions from "../../store/actions/index";
 import classes from "./Layout.module.css";
 import Toolbar from "../../components/Navigation/Toolbar/Toolbar";
 import SideDrawer from "../../components/Navigation/SideDrawer/SideDrawer";
@@ -24,9 +25,13 @@ const Layout = (props) => {
           closed={sideDrawerClosedHandler}
         />
         <Toolbar
-          isAuth={props.isAuthenticated}
           cartContent={props.cartContent}
+          listItems={props.items}
+          price={props.price}
           drawerToggleClicked={sideDrawerToggleHandler}
+          isCartDrawerOpen={props.isCartDrawerOpen}
+          isAuth={props.isAuthenticated}
+          showCartDrawer={props.showCartDrawer}
         />
         {props.children}
       </main>
@@ -36,9 +41,18 @@ const Layout = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    isAuthenticated: state.auth.token !== null,
     cartContent: state.storeBuilder.inventory,
+    items: state.storeBuilder.listItems,
+    price: state.storeBuilder.totalPrice,
+    isCartDrawerOpen: state.storeBuilder.isCartDrawerOpen,
+    isAuthenticated: state.auth.token !== null,
   };
 };
 
-export default connect(mapStateToProps)(Layout);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    showCartDrawer: (value) => dispatch(actions.showCartDrawer(value)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Layout);
