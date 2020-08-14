@@ -3,7 +3,15 @@
   grid-gap: 4rem;
   grid-auto-flow: row;
   margin: 0;
-  font-family: 'Alegreya SC',monospace;
+  font-family: "Alegreya SC", monospace;
+}
+
+.CartCounter {
+  background-color: var(--orange);
+  color: white;
+  padding: 0.3rem;
+  font-weight: 600;
+  text-align: right;
 }
 
 @media (min-width: 500px) {

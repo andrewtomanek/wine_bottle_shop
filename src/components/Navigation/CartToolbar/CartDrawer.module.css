@@ -1,0 +1,74 @@
+.OrderSummary {
+  position: fixed;
+  width: 60%;
+  height: 50%;
+  display: grid;
+  grid-auto-flow: row;
+  justify-items: center;
+  padding: 0;
+  background-color: var(--wine);
+  top: 10vh;
+  right: 20vw;
+  border: 1rem solid var(--blue);
+}
+
+.OrderBox {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-content: space-around;
+  justify-content: space-around;
+  padding: 0.2rem;
+}
+
+.OrderControls {
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  align-items: center;
+  align-content: space-around;
+  justify-content: space-around;
+  padding: 1rem 0rem;
+  margin: 0rem;
+}
+
+.OrderItem {
+  display: grid;
+  grid-template-columns: 1fr 5vw;
+  align-content: space-around;
+  justify-content: space-around;
+  justify-items: start;
+  padding: 0.3rem 1rem;
+}
+
+.OrderTitle {
+  outline: none;
+  color: var(--red);
+  font-family: inherit;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.1rem 0.5rem;
+  margin: 0rem;
+}
+
+.OrderName {
+  outline: none;
+  color: var(--red);
+  font-family: inherit;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 0.3rem 0.5rem;
+  margin: 0rem;
+}
+
+.OrderPrice {
+  outline: none;
+  color: var(--red);
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 0.3rem 0.5rem;
+  margin: 0rem;
+}

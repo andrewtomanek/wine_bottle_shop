@@ -6,37 +6,27 @@ import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/Store/OrderSummary/OrderSummary";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
+import { reduceCartState } from "../../shared/helpers";
 import * as actions from "../../store/actions/index";
 import axios from "../../axios-orders";
 /* eslint-disable */
 
-const storeBuilder = props => {
+const storeBuilder = (props) => {
   const [purchasing, setPurchasing] = useState(false);
   useEffect(() => {
     props.onInitList();
     props.onInitInventory();
   }, []);
 
-  const updatePurchaseState = inventory => {
+  const updatePurchaseState = (inventory) => {
     const sum = Object.keys(inventory)
-      .map(igKey => {
+      .map((igKey) => {
         return inventory[igKey];
       })
       .reduce((sum, el) => {
         return sum + el;
       }, 0);
     return sum > 0;
-  };
-
-  const updateCartState = inventory => {
-    const sum = Object.keys(inventory)
-      .map(igKey => {
-        return inventory[igKey];
-      })
-      .reduce((sum, el) => {
-        return sum + el;
-      }, 0);
-    return sum;
   };
 
   const purchaseHandler = () => {
@@ -58,7 +48,7 @@ const storeBuilder = props => {
   };
 
   const disabledInfo = {
-    ...props.invent
+    ...props.invent,
   };
   for (let key in disabledInfo) {
     disabledInfo[key] = disabledInfo[key] <= 0;
@@ -70,7 +60,7 @@ const storeBuilder = props => {
     store = (
       <Fragment>
         <BuildControls
-          inventory={updateCartState(props.invent)}
+          inventory={reduceCartState(props.invent)}
           inventoryAdded={props.onInventoryAdded}
           inventoryRemoved={props.onInventoryRemoved}
           disabled={disabledInfo}
@@ -102,24 +92,25 @@ const storeBuilder = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     invent: state.storeBuilder.inventory,
     items: state.storeBuilder.listItems,
     price: state.storeBuilder.totalPrice,
     error: state.storeBuilder.error,
-    isAuthenticated: state.auth.token !== null
+    isAuthenticated: state.auth.token !== null,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    onInventoryAdded: ingName => dispatch(actions.addInventory(ingName)),
-    onInventoryRemoved: ingName => dispatch(actions.removeInventory(ingName)),
+    onInventoryAdded: (ingName) => dispatch(actions.addInventory(ingName)),
+    onInventoryRemoved: (ingName) => dispatch(actions.removeInventory(ingName)),
     onInitInventory: () => dispatch(actions.initInventory()),
     onInitList: () => dispatch(actions.initList()),
     onInitPurchase: () => dispatch(actions.purchaseInit()),
-    onSetAuthRedirectPath: path => dispatch(actions.setAuthRedirectPath(path))
+    onSetAuthRedirectPath: (path) =>
+      dispatch(actions.setAuthRedirectPath(path)),
   };
 };
 
