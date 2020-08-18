@@ -1,11 +1,13 @@
 import React from "react";
 import { reduceCartState } from "../../../shared/helpers";
+import { withRouter } from "react-router";
 import classes from "./Toolbar.module.css";
 import Logo from "../../Logo/Logo";
 import NavigationItems from "../NavigationItems/NavigationItems";
 import DrawerToggle from "../SideDrawer/DrawerToggle/DrawerToggle";
 
 const Toolbar = (props) => {
+  console.log(props.location.pathname);
   const calculateCounter = (inventory) => {
     if (reduceCartState(inventory) === 0) return null;
     return (
@@ -25,7 +27,9 @@ const Toolbar = (props) => {
       <div className={classes.Logo}>
         <Logo />
       </div>
-      {props.cartContent && calculateCounter(props.cartContent)}
+      {props.location.pathname === "/" &&
+        props.cartContent &&
+        calculateCounter(props.cartContent)}
       <nav className={classes.DesktopOnly}>
         <NavigationItems isAuthenticated={props.isAuth} />
       </nav>
@@ -33,4 +37,4 @@ const Toolbar = (props) => {
   );
 };
 
-export default Toolbar;
+export default withRouter(Toolbar);

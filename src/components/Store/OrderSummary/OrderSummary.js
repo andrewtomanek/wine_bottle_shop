@@ -2,12 +2,12 @@ import React from "react";
 import classes from "./OrderSummary.module.css";
 import Button from "../../UI/Button/Button";
 
-const orderSummary = props => {
+const orderSummary = (props) => {
   let inventorySum = 0;
   for (let item of Object.values(props.inventory)) {
     inventorySum += item;
   }
-  const inventorySummary = Object.keys(props.inventory).map(igKey => {
+  const inventorySummary = Object.keys(props.inventory).map((igKey) => {
     return (
       <div className={classes.OrderItem} key={igKey}>
         <span className={classes.OrderName}>{props.listItems[igKey]}</span>

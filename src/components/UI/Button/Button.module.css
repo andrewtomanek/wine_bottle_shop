@@ -7,9 +7,9 @@
   font: inherit;
   padding: 0.4rem 0.6rem;
   margin: 0px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 800;
-  font-family: 'Alegreya SC',monospace;
+  font-family: "Alegreya SC", monospace;
 }
 
 .Button:disabled {
@@ -23,4 +23,13 @@
 
 .Danger {
   background-color: var(--red);
+}
+
+@media all and (max-width: 736px) {
+  .Button {
+    padding: 0.4rem 0.6rem;
+    margin: 0px;
+    font-size: 2rem;
+    font-weight: 900;
+  }
 }

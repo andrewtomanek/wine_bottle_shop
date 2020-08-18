@@ -10,13 +10,13 @@ const controls = [
   { label: "Sauvignon ", price: 80, type: "shopItem5" },
   { label: "Tramín", price: 70, type: "shopItem6" },
   { label: "Hibernal", price: 60, type: "shopItem7" },
-  { label: "Pálava", price: 100, type: "shopItem8" }
+  { label: "Pálava", price: 100, type: "shopItem8" },
 ];
 
-const buildControls = props => (
+const BuildControls = (props) => (
   <div className={classes.BuildControls}>
     <div className={classes.BuildBox}>
-      {controls.map(ctrl => (
+      {controls.map((ctrl) => (
         <BuildControl
           key={ctrl.label}
           label={ctrl.label}
@@ -68,4 +68,4 @@ const buildControls = props => (
   </div>
 );
 
-export default buildControls;
+export default BuildControls;

@@ -1,10 +1,13 @@
 import * as actionTypes from "../actions/actionTypes";
 import { updateObject } from "../../shared/utility";
 
+let inventoryStorage = JSON.parse(localStorage.getItem("inventory"));
+let totalPriceStorage = JSON.parse(localStorage.getItem("totalPrice")) || 100;
+
 const initialState = {
-  inventory: null,
+  inventory: inventoryStorage,
   listItems: "",
-  totalPrice: null,
+  totalPrice: totalPriceStorage,
   isCartDrawerOpen: false,
   error: false,
   building: false,
@@ -31,6 +34,9 @@ const addInventory = (state, action) => {
     totalPrice: state.totalPrice + INVENTORY_PRICES[action.inventoryName],
     building: true,
   };
+
+  localStorage.setItem("inventory", JSON.stringify(updatedState.inventory));
+  localStorage.setItem("totalPrice", JSON.stringify(updatedState.totalPrice));
   return updateObject(state, updatedState);
 };
 
@@ -41,13 +47,31 @@ const removeInventory = (state, action) => {
   const updatedIngs = updateObject(state.inventory, updatedIng);
   const updatedSt = {
     inventory: updatedIngs,
-    totalPrice: state.totalPrice + INVENTORY_PRICES[action.inventoryName],
+    totalPrice: state.totalPrice - INVENTORY_PRICES[action.inventoryName],
     building: true,
   };
+  localStorage.setItem("inventory", JSON.stringify(updatedSt.inventory));
+  localStorage.setItem("totalPrice", JSON.stringify(updatedSt.totalPrice));
   return updateObject(state, updatedSt);
 };
 
 const setInventory = (state, action) => {
+  if (localStorage.getItem("inventory"))
+    return updateObject(state, {
+      inventory: {
+        shopItem1: action.inventoryStorage.shopItem1,
+        shopItem2: action.inventoryStorage.shopItem2,
+        shopItem3: action.inventoryStorage.shopItem3,
+        shopItem4: action.inventoryStorage.shopItem4,
+        shopItem5: action.inventoryStorage.shopItem5,
+        shopItem6: action.inventoryStorage.shopItem6,
+        shopItem7: action.inventoryStorage.shopItem7,
+        shopItem8: action.inventoryStorage.shopItem8,
+      },
+      totalPrice: 100,
+      error: false,
+      building: false,
+    });
   return updateObject(state, {
     inventory: {
       shopItem1: action.inventory.shopItem1,
