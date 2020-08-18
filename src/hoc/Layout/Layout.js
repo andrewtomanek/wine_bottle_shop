@@ -4,6 +4,7 @@ import * as actions from "../../store/actions/index";
 import classes from "./Layout.module.css";
 import Toolbar from "../../components/Navigation/Toolbar/Toolbar";
 import SideDrawer from "../../components/Navigation/SideDrawer/SideDrawer";
+import CartDrawer from "../../components/Navigation/CartToolbar/CartDrawer";
 
 const Layout = (props) => {
   const [sideDrawerIsVisible, setSideDrawerIsVisible] = useState(false);
@@ -20,21 +21,28 @@ const Layout = (props) => {
     <Fragment>
       <main className={classes.Content}>
         <SideDrawer
-          isAuth={props.isAuthenticated}
+          inventory={props.cartContent}
           open={sideDrawerIsVisible}
+          showCartDrawer={props.showCartDrawer}
           closed={sideDrawerClosedHandler}
+          isAuth={props.isAuthenticated}
         />
         <Toolbar
           cartContent={props.cartContent}
-          listItems={props.items}
-          price={props.price}
           drawerToggleClicked={sideDrawerToggleHandler}
-          isCartDrawerOpen={props.isCartDrawerOpen}
           isAuth={props.isAuthenticated}
           showCartDrawer={props.showCartDrawer}
         />
         {props.children}
       </main>
+      {props.cartContent && props.isCartDrawerOpen && (
+        <CartDrawer
+          inventory={props.cartContent}
+          listItems={props.listItems}
+          price={props.price}
+          isAuth={props.isAuthenticated}
+        />
+      )}
     </Fragment>
   );
 };
@@ -42,7 +50,7 @@ const Layout = (props) => {
 const mapStateToProps = (state) => {
   return {
     cartContent: state.storeBuilder.inventory,
-    items: state.storeBuilder.listItems,
+    listItems: state.storeBuilder.listItems,
     price: state.storeBuilder.totalPrice,
     isCartDrawerOpen: state.storeBuilder.isCartDrawerOpen,
     isAuthenticated: state.auth.token !== null,

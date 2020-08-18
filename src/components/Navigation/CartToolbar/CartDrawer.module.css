@@ -5,13 +5,15 @@
   justify-items: center;
   padding: 0;
   background-color: var(--wine);
-  top: 10vh;
-  right: 20vw;
-  border: 1rem solid var(--blue);
+  top: 1vh;
+  left: 20vw;
+  border: 0.1rem solid var(--blue);
+  z-index: 10;
 }
 
 .OrderBox {
   display: grid;
+  grid-template-columns: repeat(2, 1fr);
   grid-auto-flow: row;
   align-content: space-around;
   justify-content: space-around;
@@ -27,7 +29,6 @@
   align-content: space-around;
   justify-content: space-around;
   padding: 1rem 0rem;
-  margin: 0rem;
 }
 
 .OrderItem {
@@ -36,7 +37,7 @@
   align-content: space-around;
   justify-content: space-around;
   justify-items: start;
-  padding: 0.3rem 1rem;
+  padding: 0.1rem 0.8rem;
 }
 
 .OrderTitle {
@@ -69,4 +70,10 @@
   font-weight: 700;
   padding: 0.3rem 0.5rem;
   margin: 0rem;
+}
+
+@media (max-width: 500px) {
+  .OrderSummary {
+    right: 20vw;
+  }
 }

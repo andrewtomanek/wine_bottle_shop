@@ -3,11 +3,13 @@ import { connect } from "react-redux";
 import classes from "./CartDrawer.module.css";
 import { withRouter } from "react-router";
 import * as actions from "../../../store/actions/index";
+import Button from "../../UI/Button/Button";
+import NavigationItem from "../NavigationItems/NavigationItem/NavigationItem";
 
 const CartDrawer = (props) => {
   const toggleCartDrawer = () => {
-    props.history.push("/checkout");
     props.showCartDrawer(false);
+    props.history.push("/checkout");
   };
 
   let inventorySum = 0;
@@ -24,12 +26,24 @@ const CartDrawer = (props) => {
   });
 
   return (
-    <div className={classes.OrderSummary}>
+    <div
+      onMouseLeave={() => props.showCartDrawer(false)}
+      className={classes.OrderSummary}
+    >
+      <Button btnType="Danger" clicked={() => props.showCartDrawer(false)}>
+        X
+      </Button>
       <h3 className={classes.OrderTitle}>Košík</h3>
       <div className={classes.OrderBox}>{inventorySummary}</div>
       <p className={classes.OrderPrice}>Cena: {props.price.toFixed(2)}</p>
       <p className={classes.OrderPrice}>Celkem {inventorySum} ks</p>
-      <button onClick={toggleCartDrawer}>Do košíku</button>
+      {props.isAuth ? (
+        <Button btnType="Danger" clicked={toggleCartDrawer}>
+          Do košíku
+        </Button>
+      ) : (
+        <NavigationItem link="/auth">Registrace</NavigationItem>
+      )}
     </div>
   );
 };
