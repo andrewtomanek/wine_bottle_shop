@@ -16,6 +16,7 @@ const storeBuilder = (props) => {
   useEffect(() => {
     props.onInitList();
     props.onInitInventory();
+    props.onInitPrices();
   }, []);
 
   const updatePurchaseState = (inventory) => {
@@ -108,6 +109,7 @@ const mapDispatchToProps = (dispatch) => {
     onInventoryRemoved: (ingName) => dispatch(actions.removeInventory(ingName)),
     onInitInventory: () => dispatch(actions.initInventory()),
     onInitList: () => dispatch(actions.initList()),
+    onInitPrices: () => dispatch(actions.initPrices()),
     onInitPurchase: () => dispatch(actions.purchaseInit()),
     onSetAuthRedirectPath: (path) =>
       dispatch(actions.setAuthRedirectPath(path)),

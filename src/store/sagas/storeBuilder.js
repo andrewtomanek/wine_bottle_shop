@@ -23,3 +23,14 @@ export function* initListSaga(action) {
     yield put(actions.fetchListFailed());
   }
 }
+
+export function* initPricesSaga(action) {
+  try {
+    const response = yield axios.get(
+      "https://bottle-2f0f4.firebaseio.com/prices.json"
+    );
+    yield put(actions.setPrices(response.data));
+  } catch (error) {
+    yield put(actions.fetchPricesFailed());
+  }
+}

@@ -1,9 +1,9 @@
-.OrderSummary {
+.CartWrapper {
   position: fixed;
   display: grid;
   grid-auto-flow: row;
   justify-items: center;
-  padding: 0;
+  padding: 0.1rem 0.8rem;
   background-color: var(--wine);
   top: 1vh;
   left: 20vw;
@@ -11,7 +11,7 @@
   z-index: 10;
 }
 
-.OrderBox {
+.CartBox {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-auto-flow: row;
@@ -20,7 +20,7 @@
   padding: 0.2rem;
 }
 
-.OrderControls {
+.CartControls {
   width: 90%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -31,7 +31,7 @@
   padding: 1rem 0rem;
 }
 
-.OrderItem {
+.CartItem {
   display: grid;
   grid-template-columns: 1fr 5vw;
   align-content: space-around;
@@ -40,7 +40,7 @@
   padding: 0.1rem 0.8rem;
 }
 
-.OrderTitle {
+.CartTitle {
   outline: none;
   color: var(--red);
   font-family: inherit;
@@ -51,7 +51,7 @@
   margin: 0rem;
 }
 
-.OrderName {
+.CartName {
   outline: none;
   color: var(--red);
   font-family: inherit;
@@ -62,7 +62,7 @@
   margin: 0rem;
 }
 
-.OrderPrice {
+.CartPrice {
   outline: none;
   color: var(--red);
   font-family: inherit;
@@ -73,7 +73,7 @@
 }
 
 @media (max-width: 500px) {
-  .OrderSummary {
+  .CartSummary {
     right: 20vw;
   }
 }

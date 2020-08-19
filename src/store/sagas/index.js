@@ -5,9 +5,13 @@ import {
   logoutSaga,
   checkAuthTimeoutSaga,
   authUserSaga,
-  authCheckStateSaga
+  authCheckStateSaga,
 } from "./auth";
-import { initInventorySaga, initListSaga } from "./storeBuilder";
+import {
+  initInventorySaga,
+  initListSaga,
+  initPricesSaga,
+} from "./storeBuilder";
 import { purchaseStoreSaga, fetchOrdersSaga } from "./order";
 
 export function* watchAuth() {
@@ -15,13 +19,14 @@ export function* watchAuth() {
     takeEvery(actionTypes.AUTH_CHECK_TIMEOUT, checkAuthTimeoutSaga),
     takeEvery(actionTypes.AUTH_INITIATE_LOGOUT, logoutSaga),
     takeEvery(actionTypes.AUTH_USER, authUserSaga),
-    takeEvery(actionTypes.AUTH_CHECK_STATE, authCheckStateSaga)
+    takeEvery(actionTypes.AUTH_CHECK_STATE, authCheckStateSaga),
   ]);
 }
 
 export function* watchStoreBuilder() {
   yield takeEvery(actionTypes.INIT_INVENTORY, initInventorySaga);
   yield takeEvery(actionTypes.INIT_LIST, initListSaga);
+  yield takeEvery(actionTypes.INIT_PRICES, initPricesSaga);
 }
 
 export function* watchOrder() {

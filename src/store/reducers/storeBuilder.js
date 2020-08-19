@@ -7,21 +7,11 @@ let totalPriceStorage = JSON.parse(localStorage.getItem("totalPrice")) || 100;
 const initialState = {
   inventory: inventoryStorage,
   listItems: "",
+  pricesList: null,
   totalPrice: totalPriceStorage,
   isCartDrawerOpen: false,
   error: false,
   building: false,
-};
-
-const INVENTORY_PRICES = {
-  shopItem1: 50.0,
-  shopItem2: 40.0,
-  shopItem3: 70.0,
-  shopItem4: 80.0,
-  shopItem5: 90.0,
-  shopItem6: 100.0,
-  shopItem7: 150.0,
-  shopItem8: 250.0,
 };
 
 const addInventory = (state, action) => {
@@ -31,7 +21,7 @@ const addInventory = (state, action) => {
   const updatedInventorys = updateObject(state.inventory, updatedInventory);
   const updatedState = {
     inventory: updatedInventorys,
-    totalPrice: state.totalPrice + INVENTORY_PRICES[action.inventoryName],
+    totalPrice: state.totalPrice + state.pricesList[action.inventoryName],
     building: true,
   };
 
@@ -47,7 +37,7 @@ const removeInventory = (state, action) => {
   const updatedIngs = updateObject(state.inventory, updatedIng);
   const updatedSt = {
     inventory: updatedIngs,
-    totalPrice: state.totalPrice - INVENTORY_PRICES[action.inventoryName],
+    totalPrice: state.totalPrice - state.pricesList[action.inventoryName],
     building: true,
   };
   localStorage.setItem("inventory", JSON.stringify(updatedSt.inventory));
@@ -56,64 +46,63 @@ const removeInventory = (state, action) => {
 };
 
 const setInventory = (state, action) => {
-  if (localStorage.getItem("inventory"))
-    return updateObject(state, {
-      inventory: {
-        shopItem1: action.inventoryStorage.shopItem1,
-        shopItem2: action.inventoryStorage.shopItem2,
-        shopItem3: action.inventoryStorage.shopItem3,
-        shopItem4: action.inventoryStorage.shopItem4,
-        shopItem5: action.inventoryStorage.shopItem5,
-        shopItem6: action.inventoryStorage.shopItem6,
-        shopItem7: action.inventoryStorage.shopItem7,
-        shopItem8: action.inventoryStorage.shopItem8,
-      },
+  const inventory = localStorage.getItem("inventory");
+  if (inventory) {
+    return {
+      ...state,
+      inventory: JSON.parse(inventory),
       totalPrice: 100,
-      error: false,
-      building: false,
-    });
-  return updateObject(state, {
-    inventory: {
-      shopItem1: action.inventory.shopItem1,
-      shopItem2: action.inventory.shopItem2,
-      shopItem3: action.inventory.shopItem3,
-      shopItem4: action.inventory.shopItem4,
-      shopItem5: action.inventory.shopItem5,
-      shopItem6: action.inventory.shopItem6,
-      shopItem7: action.inventory.shopItem7,
-      shopItem8: action.inventory.shopItem8,
-    },
-    totalPrice: 100,
-    error: false,
-    building: false,
-  });
+    };
+  } else {
+    return {
+      ...state,
+      inventory: action.inventory,
+      totalPrice: 100,
+    };
+  }
 };
 
 const fetchInventoryFailed = (state, action) => {
-  return updateObject(state, { error: true });
+  return {
+    ...state,
+    error: true,
+  };
 };
 
 const changeCartDrawer = (state, action) => {
-  return updateObject(state, { isCartDrawerOpen: action.value });
+  return {
+    ...state,
+    isCartDrawerOpen: action.value,
+  };
 };
 
 const setList = (state, action) => {
-  return updateObject(state, {
-    listItems: {
-      shopItem1: action.listItems.shopItem1,
-      shopItem2: action.listItems.shopItem2,
-      shopItem3: action.listItems.shopItem3,
-      shopItem4: action.listItems.shopItem4,
-      shopItem5: action.listItems.shopItem5,
-      shopItem6: action.listItems.shopItem6,
-      shopItem7: action.listItems.shopItem7,
-      shopItem8: action.listItems.shopItem8,
-    },
-  });
+  return {
+    ...state,
+    listItems: action.listItems,
+  };
 };
 
 const fetchListFailed = (state, action) => {
-  return updateObject(state, { error: true });
+  return {
+    ...state,
+    error: true,
+  };
+};
+
+const setPrices = (state, action) => {
+  console.log(action);
+  return {
+    ...state,
+    pricesList: action.prices,
+  };
+};
+
+const fetchPricesFailed = (state, action) => {
+  return {
+    ...state,
+    error: true,
+  };
 };
 
 const reducer = (state = initialState, action) => {
@@ -130,6 +119,10 @@ const reducer = (state = initialState, action) => {
       return setList(state, action);
     case actionTypes.FETCH_LIST_FAILED:
       return fetchListFailed(state, action);
+    case actionTypes.SET_PRICES:
+      return setPrices(state, action);
+    case actionTypes.FETCH_PRICES_FAILED:
+      return fetchPricesFailed(state, action);
     case actionTypes.SHOW_CART_DRAWER:
       return changeCartDrawer(state, action);
     default:

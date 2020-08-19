@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-
 import Button from "../../../components/UI/Button/Button";
 import Spinner from "../../../components/UI/Spinner/Spinner";
 import classes from "./ContactData.module.css";
@@ -8,76 +7,76 @@ import Input from "../../../components/UI/Input/Input";
 import * as actions from "../../../store/actions/index";
 import { updateObject, checkValidity } from "../../../shared/utility";
 
-const ContactData = props => {
+const ContactData = (props) => {
   const [orderForm, setOrderForm] = useState({
     name: {
       elementType: "input",
       elementConfig: {
         type: "text",
-        placeholder: "Jméno a Příjmení"
+        placeholder: "Jméno a Příjmení",
       },
       value: "",
       validation: {
-        required: true
+        required: true,
       },
       valid: false,
-      touched: false
+      touched: false,
     },
     street: {
       elementType: "input",
       elementConfig: {
         type: "text",
-        placeholder: "Ulice, č.p."
+        placeholder: "Ulice, č.p.",
       },
       value: "",
       validation: {
-        required: true
+        required: true,
       },
       valid: false,
-      touched: false
+      touched: false,
     },
     zipCode: {
       elementType: "input",
       elementConfig: {
         type: "text",
-        placeholder: "PSČ"
+        placeholder: "PSČ",
       },
       value: "",
       validation: {
         required: true,
         minLength: 5,
         maxLength: 5,
-        isNumeric: true
+        isNumeric: true,
       },
       valid: false,
-      touched: false
+      touched: false,
     },
     country: {
       elementType: "input",
       elementConfig: {
         type: "text",
-        placeholder: "Město"
+        placeholder: "Město",
       },
       value: "",
       validation: {
-        required: true
+        required: true,
       },
       valid: false,
-      touched: false
+      touched: false,
     },
     email: {
       elementType: "input",
       elementConfig: {
         type: "email",
-        placeholder: "E-Mail"
+        placeholder: "E-Mail",
       },
       value: "",
       validation: {
         required: true,
-        isEmail: true
+        isEmail: true,
       },
       valid: false,
-      touched: false
+      touched: false,
     },
     deliveryMethod: {
       elementType: "select",
@@ -85,17 +84,17 @@ const ContactData = props => {
         options: [
           { value: "cash", displayValue: "Platba  Dobírkou" },
           { value: "card", displayValue: "Platba Hotově/kartou" },
-          { value: "online", displayValue: "Online platba kartou" }
-        ]
+          { value: "online", displayValue: "Online platba kartou" },
+        ],
       },
       value: "online",
       validation: {},
-      valid: true
-    }
+      valid: true,
+    },
   });
   const [formIsValid, setFormIsValid] = useState(false);
 
-  const orderHandler = event => {
+  const orderHandler = (event) => {
     event.preventDefault();
 
     const formData = {};
@@ -108,7 +107,7 @@ const ContactData = props => {
       listItems: props.list,
       price: props.price,
       orderData: formData,
-      userId: props.userId
+      userId: props.userId,
     };
 
     props.onOrderStore(order, props.token);
@@ -121,10 +120,10 @@ const ContactData = props => {
         event.target.value,
         orderForm[inputIdentifier].validation
       ),
-      touched: true
+      touched: true,
     });
     const updatedOrderForm = updateObject(orderForm, {
-      [inputIdentifier]: updatedFormElement
+      [inputIdentifier]: updatedFormElement,
     });
 
     let formIsValid = true;
@@ -139,12 +138,12 @@ const ContactData = props => {
   for (let key in orderForm) {
     formElementsArray.push({
       id: key,
-      config: orderForm[key]
+      config: orderForm[key],
     });
   }
   let form = (
     <form onSubmit={orderHandler}>
-      {formElementsArray.map(formElement => (
+      {formElementsArray.map((formElement) => (
         <Input
           key={formElement.id}
           elementType={formElement.config.elementType}
@@ -153,7 +152,7 @@ const ContactData = props => {
           invalid={!formElement.config.valid}
           shouldValidate={formElement.config.validation}
           touched={formElement.config.touched}
-          changed={event => inputChangedHandler(event, formElement.id)}
+          changed={(event) => inputChangedHandler(event, formElement.id)}
         />
       ))}
       <Button btnType="Success" disabled={!formIsValid}>
@@ -172,21 +171,21 @@ const ContactData = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     invent: state.storeBuilder.inventory,
     list: state.storeBuilder.listItems,
     price: state.storeBuilder.totalPrice,
     loading: state.order.loading,
     token: state.auth.token,
-    userId: state.auth.userId
+    userId: state.auth.userId,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     onOrderStore: (orderData, token) =>
-      dispatch(actions.purchaseStore(orderData, token))
+      dispatch(actions.purchaseStore(orderData, token)),
   };
 };
 

@@ -46,6 +46,25 @@ export const initList = () => {
   };
 };
 
+export const setPrices = (prices) => {
+  return {
+    type: actionTypes.SET_PRICES,
+    prices,
+  };
+};
+
+export const fetchPricesFailed = () => {
+  return {
+    type: actionTypes.FETCH_PRICES_FAILED,
+  };
+};
+
+export const initPrices = () => {
+  return {
+    type: actionTypes.INIT_PRICES,
+  };
+};
+
 export const showCartDrawer = (value) => {
   return {
     type: actionTypes.SHOW_CART_DRAWER,
