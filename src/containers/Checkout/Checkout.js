@@ -6,7 +6,7 @@ import CheckoutSummary from "../../components/Order/CheckoutSummary/CheckoutSumm
 import ContactData from "./ContactData/ContactData";
 import classes from "./Checkout.module.css";
 
-const Checkout = props => {
+const Checkout = (props) => {
   const [confirmed, setConfirmed] = useState(true);
 
   const checkoutCancelledHandler = () => {
@@ -28,6 +28,7 @@ const Checkout = props => {
           <CheckoutSummary
             inventory={props.invent}
             listItems={props.items}
+            pricesList={props.pricesList}
             checkoutCancelled={checkoutCancelledHandler}
             checkoutContinued={checkoutContinuedHandler}
           />
@@ -40,11 +41,12 @@ const Checkout = props => {
   return summary;
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     invent: state.storeBuilder.inventory,
     items: state.storeBuilder.listItems,
-    purchased: state.order.purchased
+    pricesList: state.storeBuilder.pricesList,
+    purchased: state.order.purchased,
   };
 };
 

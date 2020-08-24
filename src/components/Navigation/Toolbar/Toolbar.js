@@ -3,6 +3,7 @@ import { reduceCartState } from "../../../shared/helpers";
 import { withRouter } from "react-router";
 import classes from "./Toolbar.module.css";
 import Logo from "../../Logo/Logo";
+import cartLogo from "../../../assets/images/icon/shopping-cart.png";
 import NavigationItems from "../NavigationItems/NavigationItems";
 import DrawerToggle from "../SideDrawer/DrawerToggle/DrawerToggle";
 
@@ -10,13 +11,16 @@ const Toolbar = (props) => {
   const calculateCounter = (inventory) => {
     if (reduceCartState(inventory) === 0) return null;
     return (
-      <span
+      <div
+        className={classes.CartWrap}
         onMouseEnter={() => props.showCartDrawer(true)}
         onClick={() => props.showCartDrawer(true)}
-        className={classes.CartCounter}
       >
-        {reduceCartState(inventory)}
-      </span>
+        <img className={classes.CartIcom} src={cartLogo} alt="cartLogo" />
+        <span className={classes.CartCounter}>
+          {reduceCartState(inventory)}
+        </span>
+      </div>
     );
   };
 

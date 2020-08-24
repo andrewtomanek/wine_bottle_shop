@@ -72,6 +72,12 @@ export const showCartDrawer = (value) => {
   };
 };
 
+export const emptyShopCart = () => {
+  return {
+    type: actionTypes.EMPTY_SHOP_CART,
+  };
+};
+
 export const fetchListFailed = () => {
   return {
     type: actionTypes.FETCH_LIST_FAILED,

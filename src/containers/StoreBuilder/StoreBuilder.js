@@ -80,7 +80,7 @@ const StoreBuilder = (props) => {
   return (
     <Fragment>
       <Modal show={purchasing} modalClosed={purchaseCancelHandler}>
-        {props.invent && props.listNames ? (
+        {props.invent && props.listNames && props.price ? (
           <OrderSummary
             inventory={props.invent}
             listNames={props.listNames}

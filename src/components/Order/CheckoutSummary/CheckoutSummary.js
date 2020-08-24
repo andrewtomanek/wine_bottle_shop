@@ -4,9 +4,9 @@ import CheckoutList from "./CheckoutList";
 import Button from "../../UI/Button/Button";
 import classes from "./CheckoutSummary.module.css";
 
-const checkoutSummary = props => {
+const checkoutSummary = (props) => {
   const inventorySum = Object.keys(props.inventory)
-    .map(igKey => {
+    .map((igKey) => {
       return props.inventory[igKey];
     })
     .reduce((inventorySum, el) => {
@@ -15,15 +15,19 @@ const checkoutSummary = props => {
   return (
     <div className={classes.CheckoutSummary}>
       <div className={classes.CheckoutBox}>
-        <CheckoutList inventory={props.inventory} listItems={props.listItems} />
+        <CheckoutList
+          inventory={props.inventory}
+          listItems={props.listItems}
+          pricesList={props.pricesList}
+        />
       </div>
-      {(inventorySum !== 0 && inventorySum % 6 === 0) &&
-      <div className={classes.CheckoutContent}>
-        <h4 className={classes.CheckoutHeading}>
-          Potvdit kompletní obsah objednávky
-        </h4>
-      </div>
-}
+      {inventorySum !== 0 && inventorySum % 6 === 0 && (
+        <div className={classes.CheckoutContent}>
+          <h4 className={classes.CheckoutHeading}>
+            Potvdit kompletní obsah objednávky
+          </h4>
+        </div>
+      )}
       <div className={classes.CheckoutControls}>
         <Button btnType="Danger" clicked={props.checkoutCancelled}>
           Zrušit

@@ -24,7 +24,7 @@ const BuildControls = (props) => {
       <div className={classes.ControlBox}>
         <p className={classes.PriceSum}>
           Celkem: <br />
-          {props.price.toFixed(2)}Kč
+          {props.price && props.price.toFixed(2)}Kč
         </p>{" "}
         <p className={classes.PriceSum}>
           Množství: <br />
@@ -41,11 +41,8 @@ const BuildControls = (props) => {
           }
           onClick={props.ordered}
         >
-          {props.isAuth ? (
-            <img className={classes.CartLogo} src={cartLogo} alt="cartLogo" />
-          ) : (
-            "Objednat"
-          )}
+          Objednat
+          <img className={classes.CartLogo} src={cartLogo} alt="cartLogo" />
         </button>
         <p className={classes.PriceSum}>
           {props.inventory !== 0 && props.inventory % 6 === 0

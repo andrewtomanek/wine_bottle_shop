@@ -15,12 +15,25 @@
   height: 100%;
 }
 
-.CartCounter {
+.CartWrap {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  margin: 0;
+  padding: 0.1rem 0.4rem;
   background-color: var(--blue);
+}
+
+.CartCounter {
   color: var(--wine);
-  padding: 0.3rem 0.7rem;
+  padding: 0.1rem 0.2rem;
   font-size: 1.1rem;
   font-weight: 800;
+}
+
+.CartIcom {
+  height: 3vh;
+  filter: invert(100%);
 }
 
 .Logo {

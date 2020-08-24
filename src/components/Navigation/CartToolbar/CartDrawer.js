@@ -1,8 +1,6 @@
 import React from "react";
-import { connect } from "react-redux";
 import classes from "./CartDrawer.module.css";
 import { withRouter } from "react-router";
-import * as actions from "../../../store/actions/index";
 import Button from "../../UI/Button/Button";
 import NavigationItem from "../NavigationItems/NavigationItem/NavigationItem";
 
@@ -18,9 +16,9 @@ const CartDrawer = (props) => {
   }
   const inventorySummary = Object.keys(props.inventory).map((igKey) => {
     return (
-      <div className={classes.Item} key={igKey}>
-        <span className={classes.Name}>{props.namesList[igKey]}</span>
-        <span className={classes.Price}> {props.inventory[igKey]}</span>
+      <div className={classes.CartItem} key={igKey}>
+        <span className={classes.CartName}>{props.namesList[igKey]}</span>
+        <span className={classes.CartText}> {props.inventory[igKey]}</span>
       </div>
     );
   });
@@ -34,24 +32,23 @@ const CartDrawer = (props) => {
         X
       </Button>
       <h3 className={classes.CartTitle}>Košík</h3>
-      <div className={classes.Box}>{inventorySummary}</div>
-      <p className={classes.Price}>Cena: {props.price.toFixed(2)}</p>
-      <p className={classes.Price}>Celkem {inventorySum} ks</p>
-      {props.isAuth ? (
-        <Button btnType="Danger" clicked={toggleCartDrawer}>
-          Do košíku
+      <div className={classes.CartBox}>{inventorySummary}</div>
+      <p className={classes.CartText}>Cena: {props.price.toFixed(2)}</p>
+      <p className={classes.CartText}>Celkem {inventorySum} ks</p>
+      <div className={classes.CartBox}>
+        {props.isAuth ? (
+          <Button btnType="Danger" clicked={toggleCartDrawer}>
+            Do košíku
+          </Button>
+        ) : (
+          <NavigationItem link="/auth">Registrace</NavigationItem>
+        )}
+        <Button btnType="Danger" clicked={() => props.emptyShopCart()}>
+          Vyprázdnit košík
         </Button>
-      ) : (
-        <NavigationItem link="/auth">Registrace</NavigationItem>
-      )}
+      </div>
     </div>
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    showCartDrawer: (value) => dispatch(actions.showCartDrawer(value)),
-  };
-};
-
-export default connect(null, mapDispatchToProps)(withRouter(CartDrawer));
+export default withRouter(CartDrawer);

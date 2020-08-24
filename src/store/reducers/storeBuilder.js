@@ -1,14 +1,22 @@
 import * as actionTypes from "../actions/actionTypes";
 import { updateObject } from "../../shared/utility";
 
-let inventoryStorage = JSON.parse(localStorage.getItem("inventory"));
-let totalPriceStorage = JSON.parse(localStorage.getItem("totalPrice")) || 100;
+const EMPTY_INVENTORY = {
+  shopItem1: 0,
+  shopItem2: 0,
+  shopItem3: 0,
+  shopItem4: 0,
+  shopItem5: 0,
+  shopItem6: 0,
+  shopItem7: 0,
+  shopItem8: 0,
+};
 
 const initialState = {
-  inventory: inventoryStorage,
+  inventory: null,
   listItems: null,
   pricesList: null,
-  totalPrice: totalPriceStorage,
+  totalPrice: 100,
   isCartDrawerOpen: false,
   error: false,
   building: false,
@@ -77,6 +85,17 @@ const changeCartDrawer = (state, action) => {
   };
 };
 
+const cleanCart = (state, action) => {
+  localStorage.setItem("inventory", JSON.stringify(EMPTY_INVENTORY));
+  localStorage.setItem("totalPrice", JSON.stringify(100));
+  return {
+    ...state,
+    inventory: EMPTY_INVENTORY,
+    totalPrice: 100,
+    isCartDrawerOpen: false,
+  };
+};
+
 const setList = (state, action) => {
   return {
     ...state,
@@ -125,6 +144,8 @@ const reducer = (state = initialState, action) => {
       return fetchPricesFailed(state, action);
     case actionTypes.SHOW_CART_DRAWER:
       return changeCartDrawer(state, action);
+    case actionTypes.EMPTY_SHOP_CART:
+      return cleanCart(state, action);
     default:
       return state;
   }

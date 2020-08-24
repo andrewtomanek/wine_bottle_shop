@@ -1,11 +1,10 @@
 import React from "react";
-
 import classes from "./CheckoutList.module.css";
 import CheckoutCard from "./CheckoutCard";
 
-const store = props => {
+const CheckoutList = (props) => {
   const inventorySum = Object.keys(props.inventory)
-    .map(igKey => {
+    .map((igKey) => {
       return props.inventory[igKey];
     })
     .reduce((inventorySum, el) => {
@@ -13,13 +12,14 @@ const store = props => {
     }, 0);
 
   let transformedItems = Object.keys(props.inventory)
-    .map(igKey => {
+    .map((igKey) => {
       return [...Array(props.inventory[igKey])].map((_, i) => {
         return (
           <CheckoutCard
             key={igKey + i}
             itemType={igKey}
             itemName={props.listItems[igKey]}
+            itemPrice={props.pricesList[igKey]}
           />
         );
       });
@@ -43,4 +43,4 @@ const store = props => {
   );
 };
 
-export default store;
+export default CheckoutList;

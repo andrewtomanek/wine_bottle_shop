@@ -41,6 +41,8 @@ const Layout = (props) => {
           namesList={props.namesList}
           price={props.price}
           isAuth={props.isAuthenticated}
+          showCartDrawer={props.showCartDrawer}
+          emptyShopCart={props.emptyShopCart}
         />
       )}
     </Fragment>
@@ -60,6 +62,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     showCartDrawer: (value) => dispatch(actions.showCartDrawer(value)),
+    emptyShopCart: () => dispatch(actions.emptyShopCart()),
   };
 };
 
