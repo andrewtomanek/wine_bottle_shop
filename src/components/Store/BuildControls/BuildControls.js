@@ -3,31 +3,23 @@ import { connect } from "react-redux";
 import cartLogo from "../../../assets/images/icon/shopping-cart.png";
 import classes from "./BuildControls.module.css";
 import BuildControl from "./BuildControl/BuildControl";
-const controls = [
-  { label: "Solaris", price: 100, type: "shopItem1" },
-  { label: "Dornfelder", price: 50, type: "shopItem2" },
-  { label: "Agni", price: 50, type: "shopItem3" },
-  { label: "Muscaris", price: 70, type: "shopItem4" },
-  { label: "Sauvignon ", price: 80, type: "shopItem5" },
-  { label: "Tramín", price: 70, type: "shopItem6" },
-  { label: "Hibernal", price: 60, type: "shopItem7" },
-  { label: "Pálava", price: 100, type: "shopItem8" },
-];
 
 const BuildControls = (props) => {
   return (
     <div className={classes.BuildControls}>
       <div className={classes.BuildBox}>
-        {controls.map((ctrl) => (
-          <BuildControl
-            key={ctrl.label}
-            label={ctrl.label}
-            price={ctrl.price}
-            added={() => props.inventoryAdded(ctrl.type)}
-            removed={() => props.inventoryRemoved(ctrl.type)}
-            disabled={props.disabled[ctrl.type]}
-          />
-        ))}
+        {props.namesList &&
+          props.pricesList &&
+          Object.keys(props.namesList).map((igKey) => (
+            <BuildControl
+              key={props.namesList[igKey]}
+              label={props.namesList[igKey]}
+              price={props.pricesList[igKey]}
+              added={() => props.inventoryAdded(igKey)}
+              removed={() => props.inventoryRemoved(igKey)}
+              disabled={props.disabled[igKey]}
+            />
+          ))}
       </div>
       <div className={classes.ControlBox}>
         <p className={classes.PriceSum}>
@@ -74,7 +66,8 @@ const BuildControls = (props) => {
 const mapStateToProps = (state) => {
   return {
     invent: state.storeBuilder.inventory,
-    list: state.storeBuilder.listItems,
+    namesList: state.storeBuilder.listItems,
+    pricesList: state.storeBuilder.pricesList,
     price: state.storeBuilder.totalPrice,
     loading: state.order.loading,
     token: state.auth.token,

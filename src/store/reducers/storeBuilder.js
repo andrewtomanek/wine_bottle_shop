@@ -6,7 +6,7 @@ let totalPriceStorage = JSON.parse(localStorage.getItem("totalPrice")) || 100;
 
 const initialState = {
   inventory: inventoryStorage,
-  listItems: "",
+  listItems: null,
   pricesList: null,
   totalPrice: totalPriceStorage,
   isCartDrawerOpen: false,
@@ -47,11 +47,12 @@ const removeInventory = (state, action) => {
 
 const setInventory = (state, action) => {
   const inventory = localStorage.getItem("inventory");
+  const sumPrice = localStorage.getItem("totalPrice");
   if (inventory) {
     return {
       ...state,
       inventory: JSON.parse(inventory),
-      totalPrice: 100,
+      totalPrice: JSON.parse(sumPrice),
     };
   } else {
     return {
@@ -91,7 +92,6 @@ const fetchListFailed = (state, action) => {
 };
 
 const setPrices = (state, action) => {
-  console.log(action);
   return {
     ...state,
     pricesList: action.prices,

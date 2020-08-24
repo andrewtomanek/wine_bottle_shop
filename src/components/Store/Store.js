@@ -2,15 +2,15 @@ import React from "react";
 import classes from "./Store.module.css";
 import StoreCard from "./StoreCard";
 
-const store = props => {
+const Store = (props) => {
   let transformedItems = Object.keys(props.inventory)
-    .map(igKey => {
+    .map((igKey) => {
       return [...Array(props.inventory[igKey])].map((_, i) => {
         return (
           <StoreCard
             key={igKey + i}
             itemType={igKey}
-            itemName={props.listItems[igKey]}
+            itemName={props.listNames[igKey]}
           />
         );
       });
@@ -25,4 +25,4 @@ const store = props => {
   return <div className={classes.Store}>{transformedItems}</div>;
 };
 
-export default store;
+export default Store;

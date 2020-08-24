@@ -35,10 +35,10 @@ const Layout = (props) => {
         />
         {props.children}
       </main>
-      {props.cartContent && props.isCartDrawerOpen && (
+      {props.cartContent && props.namesList && props.isCartDrawerOpen && (
         <CartDrawer
           inventory={props.cartContent}
-          listItems={props.listItems}
+          namesList={props.namesList}
           price={props.price}
           isAuth={props.isAuthenticated}
         />
@@ -50,7 +50,7 @@ const Layout = (props) => {
 const mapStateToProps = (state) => {
   return {
     cartContent: state.storeBuilder.inventory,
-    listItems: state.storeBuilder.listItems,
+    namesList: state.storeBuilder.listItems,
     price: state.storeBuilder.totalPrice,
     isCartDrawerOpen: state.storeBuilder.isCartDrawerOpen,
     isAuthenticated: state.auth.token !== null,

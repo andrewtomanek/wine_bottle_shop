@@ -19,7 +19,7 @@ const CartDrawer = (props) => {
   const inventorySummary = Object.keys(props.inventory).map((igKey) => {
     return (
       <div className={classes.Item} key={igKey}>
-        <span className={classes.Name}>{props.listsItems[igKey]}</span>
+        <span className={classes.Name}>{props.namesList[igKey]}</span>
         <span className={classes.Price}> {props.inventory[igKey]}</span>
       </div>
     );

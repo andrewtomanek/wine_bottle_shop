@@ -11,13 +11,17 @@ import * as actions from "../../store/actions/index";
 import axios from "../../axios-orders";
 /* eslint-disable */
 
-const storeBuilder = (props) => {
+const StoreBuilder = (props) => {
   const [purchasing, setPurchasing] = useState(false);
   useEffect(() => {
+    initStoreBuilder();
+  }, []);
+
+  const initStoreBuilder = () => {
     props.onInitList();
     props.onInitInventory();
     props.onInitPrices();
-  }, []);
+  };
 
   const updatePurchaseState = (inventory) => {
     const sum = Object.keys(inventory)
@@ -34,7 +38,7 @@ const storeBuilder = (props) => {
     if (props.isAuthenticated) {
       setPurchasing(true);
     } else {
-      props.onSetAuthRedirectPath("/checkout");
+      props.onSetAuthRedirectPath("/");
       props.history.push("/auth");
     }
   };
@@ -54,10 +58,9 @@ const storeBuilder = (props) => {
   for (let key in disabledInfo) {
     disabledInfo[key] = disabledInfo[key] <= 0;
   }
-  let orderSummary = null;
   let store = props.error ? <p>Nelze nahrát zboží!</p> : <Spinner />;
 
-  if (props.invent) {
+  if (props.invent && props.listNames) {
     store = (
       <Fragment>
         <BuildControls
@@ -70,23 +73,24 @@ const storeBuilder = (props) => {
           isAuth={props.isAuthenticated}
           price={props.price}
         />
-        <Store inventory={props.invent} listItems={props.items} />
+        <Store inventory={props.invent} listNames={props.listNames} />
       </Fragment>
-    );
-    orderSummary = (
-      <OrderSummary
-        inventory={props.invent}
-        listItems={props.items}
-        price={props.price}
-        purchaseCancelled={purchaseCancelHandler}
-        purchaseContinued={purchaseContinueHandler}
-      />
     );
   }
   return (
     <Fragment>
       <Modal show={purchasing} modalClosed={purchaseCancelHandler}>
-        {orderSummary}
+        {props.invent && props.listNames ? (
+          <OrderSummary
+            inventory={props.invent}
+            listNames={props.listNames}
+            price={props.price}
+            purchaseCancelled={purchaseCancelHandler}
+            purchaseContinued={purchaseContinueHandler}
+          />
+        ) : (
+          <Spinner />
+        )}
       </Modal>
       {store}
     </Fragment>
@@ -96,7 +100,7 @@ const storeBuilder = (props) => {
 const mapStateToProps = (state) => {
   return {
     invent: state.storeBuilder.inventory,
-    items: state.storeBuilder.listItems,
+    listNames: state.storeBuilder.listItems,
     price: state.storeBuilder.totalPrice,
     error: state.storeBuilder.error,
     isAuthenticated: state.auth.token !== null,
@@ -119,4 +123,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withErrorHandler(storeBuilder, axios));
+)(withErrorHandler(StoreBuilder, axios));

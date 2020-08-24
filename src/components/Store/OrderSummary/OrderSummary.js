@@ -10,7 +10,7 @@ const orderSummary = (props) => {
   const inventorySummary = Object.keys(props.inventory).map((igKey) => {
     return (
       <div className={classes.OrderItem} key={igKey}>
-        <span className={classes.OrderName}>{props.listItems[igKey]}</span>
+        <span className={classes.OrderName}>{props.listNames[igKey]}</span>
         <span className={classes.OrderPrice}> {props.inventory[igKey]}</span>
       </div>
     );

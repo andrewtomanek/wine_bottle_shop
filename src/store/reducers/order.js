@@ -4,7 +4,7 @@ import { updateObject } from "../../shared/utility";
 const initialState = {
   orders: [],
   loading: false,
-  purchased: false
+  purchased: false,
 };
 
 const purchaseInit = (state, action) => {
@@ -16,11 +16,25 @@ const purchaseStoreStart = (state, action) => {
 };
 
 const purchaseStoreSuccess = (state, action) => {
+  localStorage.setItem(
+    "inventory",
+    JSON.stringify({
+      shopItem1: 0,
+      shopItem2: 0,
+      shopItem3: 0,
+      shopItem4: 0,
+      shopItem5: 0,
+      shopItem6: 0,
+      shopItem7: 0,
+      shopItem8: 0,
+    })
+  );
+  localStorage.setItem("totalPrice", null);
   const newOrder = updateObject(action.orderData, { id: action.orderId });
   return updateObject(state, {
     loading: false,
     purchased: true,
-    orders: state.orders.concat(newOrder)
+    orders: state.orders.concat(newOrder),
   });
 };
 
@@ -35,7 +49,7 @@ const fetchOrdersStart = (state, action) => {
 const fetchOrdersSuccess = (state, action) => {
   return updateObject(state, {
     orders: action.orders,
-    loading: false
+    loading: false,
   });
 };
 
