@@ -1,40 +1,52 @@
 import * as actionTypes from "../actions/actionTypes";
-import { updateObject } from "../../shared/utility";
 
 const initialState = {
   token: null,
   userId: null,
   error: null,
   loading: false,
-  authRedirectPath: "/"
+  authRedirectPath: "/",
 };
 
 const authStart = (state, action) => {
-  return updateObject(state, { error: null, loading: true });
+  return {
+    ...state,
+    error: null,
+    loading: true,
+  };
 };
 
 const authSuccess = (state, action) => {
-  return updateObject(state, {
+  return {
+    ...state,
     token: action.idToken,
     userId: action.userId,
     error: null,
-    loading: false
-  });
+    loading: false,
+  };
 };
 
 const authFail = (state, action) => {
-  return updateObject(state, {
+  return {
+    ...state,
     error: action.error,
-    loading: false
-  });
+    loading: false,
+  };
 };
 
-const authLogout = (state, action) => {
-  return updateObject(state, { token: null, userId: null });
+const authLogout = (state) => {
+  return {
+    ...state,
+    token: null,
+    userId: null,
+  };
 };
 
 const setAuthRedirectPath = (state, action) => {
-  return updateObject(state, { authRedirectPath: action.path });
+  return {
+    ...state,
+    authRedirectPath: action.path,
+  };
 };
 
 const reducer = (state = initialState, action) => {

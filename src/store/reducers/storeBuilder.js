@@ -1,5 +1,4 @@
 import * as actionTypes from "../actions/actionTypes";
-import { updateObject } from "../../shared/utility";
 
 const EMPTY_INVENTORY = {
   shopItem1: 0,
@@ -26,31 +25,40 @@ const addInventory = (state, action) => {
   const updatedInventory = {
     [action.inventoryName]: state.inventory[action.inventoryName] + 1,
   };
-  const updatedInventorys = updateObject(state.inventory, updatedInventory);
   const updatedState = {
-    inventory: updatedInventorys,
+    inventory: { ...state.inventory, ...updatedInventory },
     totalPrice: state.totalPrice + state.pricesList[action.inventoryName],
     building: true,
   };
 
   localStorage.setItem("inventory", JSON.stringify(updatedState.inventory));
   localStorage.setItem("totalPrice", JSON.stringify(updatedState.totalPrice));
-  return updateObject(state, updatedState);
+  return {
+    ...state,
+    inventory: updatedState.inventory,
+    totalPrice: updatedState.totalPrice,
+    building: updatedState.building,
+  };
 };
 
 const removeInventory = (state, action) => {
-  const updatedIng = {
+  const updatedInventory = {
     [action.inventoryName]: state.inventory[action.inventoryName] - 1,
   };
-  const updatedIngs = updateObject(state.inventory, updatedIng);
-  const updatedSt = {
-    inventory: updatedIngs,
+
+  const updatedState = {
+    inventory: { ...state.inventory, ...updatedInventory },
     totalPrice: state.totalPrice - state.pricesList[action.inventoryName],
     building: true,
   };
-  localStorage.setItem("inventory", JSON.stringify(updatedSt.inventory));
-  localStorage.setItem("totalPrice", JSON.stringify(updatedSt.totalPrice));
-  return updateObject(state, updatedSt);
+  localStorage.setItem("inventory", JSON.stringify(updatedState.inventory));
+  localStorage.setItem("totalPrice", JSON.stringify(updatedState.totalPrice));
+  return {
+    ...state,
+    inventory: updatedState.inventory,
+    totalPrice: updatedState.totalPrice,
+    building: updatedState.building,
+  };
 };
 
 const setInventory = (state, action) => {
@@ -71,7 +79,7 @@ const setInventory = (state, action) => {
   }
 };
 
-const fetchInventoryFailed = (state, action) => {
+const fetchInventoryFailed = (state) => {
   return {
     ...state,
     error: true,

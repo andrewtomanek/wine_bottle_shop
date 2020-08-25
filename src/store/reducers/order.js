@@ -1,5 +1,15 @@
 import * as actionTypes from "../actions/actionTypes";
-import { updateObject } from "../../shared/utility";
+
+const EMPTY_INVENTORY = {
+  shopItem1: 0,
+  shopItem2: 0,
+  shopItem3: 0,
+  shopItem4: 0,
+  shopItem5: 0,
+  shopItem6: 0,
+  shopItem7: 0,
+  shopItem8: 0,
+};
 
 const initialState = {
   orders: [],
@@ -7,54 +17,59 @@ const initialState = {
   purchased: false,
 };
 
-const purchaseInit = (state, action) => {
-  return updateObject(state, { purchased: false });
+const purchaseInit = (state) => {
+  return {
+    ...state,
+    purchased: false,
+  };
 };
 
-const purchaseStoreStart = (state, action) => {
-  return updateObject(state, { loading: true });
+const purchaseStoreStart = (state) => {
+  return {
+    ...state,
+    loading: true,
+  };
 };
 
 const purchaseStoreSuccess = (state, action) => {
-  localStorage.setItem(
-    "inventory",
-    JSON.stringify({
-      shopItem1: 0,
-      shopItem2: 0,
-      shopItem3: 0,
-      shopItem4: 0,
-      shopItem5: 0,
-      shopItem6: 0,
-      shopItem7: 0,
-      shopItem8: 0,
-    })
-  );
-  localStorage.setItem("totalPrice", null);
-  const newOrder = updateObject(action.orderData, { id: action.orderId });
-  return updateObject(state, {
+  localStorage.setItem("inventory", JSON.stringify(EMPTY_INVENTORY));
+  localStorage.setItem("totalPrice", JSON.stringify(100));
+  const newOrder = { ...action.orderData, ...{ id: action.orderId } };
+  return {
+    ...state,
     loading: false,
     purchased: true,
     orders: state.orders.concat(newOrder),
-  });
+  };
 };
 
-const purchaseStoreFail = (state, action) => {
-  return updateObject(state, { loading: false });
+const purchaseStoreFail = (state) => {
+  return {
+    ...state,
+    loading: false,
+  };
 };
 
-const fetchOrdersStart = (state, action) => {
-  return updateObject(state, { loading: true });
+const fetchOrdersStart = (state) => {
+  return {
+    ...state,
+    loading: true,
+  };
 };
 
 const fetchOrdersSuccess = (state, action) => {
-  return updateObject(state, {
+  return {
+    ...state,
     orders: action.orders,
     loading: false,
-  });
+  };
 };
 
-const fetchOrdersFail = (state, action) => {
-  return updateObject(state, { loading: false });
+const fetchOrdersFail = (state) => {
+  return {
+    ...state,
+    loading: false,
+  };
 };
 
 const reducer = (state = initialState, action) => {
