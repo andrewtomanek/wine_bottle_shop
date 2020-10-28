@@ -2,6 +2,11 @@
   "name": "bottle",
   "version": "0.1.0",
   "private": true,
+  "devDependencies": {
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.3",
+    "enzyme-to-json": "^3.5.0"
+  },
   "dependencies": {
     "axios": "^0.19.2",
     "css-loader": "^3.6.0",
@@ -12,6 +17,11 @@
     "react-scripts": "^3.4.3",
     "redux": "^4.0.5",
     "redux-saga": "^1.1.3"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   },
   "scripts": {
     "start": "react-scripts start",

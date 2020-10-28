@@ -1,0 +1,174 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Shallow Render OrderSummary component Match Snapshot of OrderSummary component 1`] = `
+<div
+  className="OrderSummary"
+>
+  <h3
+    className="OrderTitle"
+  >
+    Vaše objednávka
+  </h3>
+  <div
+    className="OrderBox"
+  >
+    <div
+      className="OrderItem"
+      key="shopItem1"
+    >
+      <span
+        className="OrderName"
+      >
+        Solaris
+      </span>
+      <span
+        className="OrderPrice"
+      >
+         
+        1
+      </span>
+    </div>
+    <div
+      className="OrderItem"
+      key="shopItem2"
+    >
+      <span
+        className="OrderName"
+      >
+        Dornfelder
+      </span>
+      <span
+        className="OrderPrice"
+      >
+         
+        2
+      </span>
+    </div>
+    <div
+      className="OrderItem"
+      key="shopItem3"
+    >
+      <span
+        className="OrderName"
+      >
+        Agni
+      </span>
+      <span
+        className="OrderPrice"
+      >
+         
+        3
+      </span>
+    </div>
+    <div
+      className="OrderItem"
+      key="shopItem4"
+    >
+      <span
+        className="OrderName"
+      >
+        Muscaris
+      </span>
+      <span
+        className="OrderPrice"
+      >
+         
+        4
+      </span>
+    </div>
+    <div
+      className="OrderItem"
+      key="shopItem5"
+    >
+      <span
+        className="OrderName"
+      >
+        Sauvignon
+      </span>
+      <span
+        className="OrderPrice"
+      >
+         
+        5
+      </span>
+    </div>
+    <div
+      className="OrderItem"
+      key="shopItem6"
+    >
+      <span
+        className="OrderName"
+      >
+        Tramín
+      </span>
+      <span
+        className="OrderPrice"
+      >
+         
+        6
+      </span>
+    </div>
+    <div
+      className="OrderItem"
+      key="shopItem7"
+    >
+      <span
+        className="OrderName"
+      >
+        Hibernal
+      </span>
+      <span
+        className="OrderPrice"
+      >
+         
+        7
+      </span>
+    </div>
+    <div
+      className="OrderItem"
+      key="shopItem8"
+    >
+      <span
+        className="OrderName"
+      >
+        Pálava
+      </span>
+      <span
+        className="OrderPrice"
+      >
+         
+        8
+      </span>
+    </div>
+  </div>
+  <p
+    className="OrderPrice"
+  >
+    Celkem 
+    36
+     ks
+  </p>
+  <div
+    className="OrderControls"
+  >
+    <button
+      btnType="Danger"
+      clicked={[MockFunction]}
+    >
+      Zrušit
+    </button>
+    <p
+      className="OrderPrice"
+    >
+      Cena: 
+      999.00
+    </p>
+    <button
+      btnType="Success"
+      clicked={[MockFunction]}
+    >
+      Pokračovat
+    </button>
+  </div>
+</div>
+`;

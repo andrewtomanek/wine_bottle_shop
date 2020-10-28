@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./OrderSummary.module.css";
 import Button from "../../UI/Button/Button";
 
-const orderSummary = (props) => {
+const OrderSummary = (props) => {
   let inventorySum = 0;
   for (let item of Object.values(props.inventory)) {
     inventorySum += item;
@@ -34,4 +34,4 @@ const orderSummary = (props) => {
   );
 };
 
-export default orderSummary;
+export default OrderSummary;

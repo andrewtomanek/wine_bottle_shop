@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Shallow Render BuildControl component Match Snapshot of BuildControl component 1`] = `
+<div
+  className="BuildControl"
+>
+  <div
+    className="Label"
+  >
+    Label-test
+  </div>
+  <button
+    className="Less"
+    disabled={false}
+    onClick={[MockFunction]}
+  >
+    -
+  </button>
+  <button
+    className="More"
+    onClick={[MockFunction]}
+  >
+    +
+  </button>
+  <div
+    className="Price"
+  >
+    99
+  </div>
+</div>
+`;
