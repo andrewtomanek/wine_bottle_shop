@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { connect } from "react-redux";
-import Store from "../../components/Store/Store";
+import StoreBoard from "../../components/Store/StoreBoard";
 import BuildControls from "../../components/Store/BuildControls/BuildControls";
 import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/Store/OrderSummary/OrderSummary";
@@ -73,7 +73,7 @@ const StoreBuilder = (props) => {
           isAuth={props.isAuthenticated}
           price={props.price}
         />
-        <Store inventory={props.invent} listNames={props.listNames} />
+        <StoreBoard inventory={props.invent} listNames={props.listNames} />
       </Fragment>
     );
   }

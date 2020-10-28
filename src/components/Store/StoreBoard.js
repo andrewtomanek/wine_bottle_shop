@@ -1,8 +1,8 @@
 import React from "react";
-import classes from "./Store.module.css";
+import classes from "./StoreBoard.module.css";
 import StoreCard from "./StoreCard";
 
-const Store = (props) => {
+const StoreBoard = (props) => {
   let transformedItems = Object.keys(props.inventory)
     .map((igKey) => {
       return [...Array(props.inventory[igKey])].map((_, i) => {
@@ -25,4 +25,4 @@ const Store = (props) => {
   return <div className={classes.Store}>{transformedItems}</div>;
 };
 
-export default Store;
+export default StoreBoard;

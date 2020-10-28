@@ -2,16 +2,16 @@ import React from "react";
 
 import classes from "./Order.module.css";
 
-const order = props => {
+const Order = (props) => {
   const inventory = [];
   for (let inventoryName in props.inventory) {
     inventory.push({
       name: props.listItems[inventoryName],
-      amount: props.inventory[inventoryName]
+      amount: props.inventory[inventoryName],
     });
   }
 
-  const inventoryOutput = inventory.map(ig => {
+  const inventoryOutput = inventory.map((ig) => {
     return (
       <div className={classes.OrderItem} key={ig.name}>
         <p className={classes.OrderText}>{ig.name}</p>
@@ -30,4 +30,4 @@ const order = props => {
   );
 };
 
-export default order;
+export default Order;

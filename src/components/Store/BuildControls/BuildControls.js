@@ -25,7 +25,7 @@ const BuildControls = (props) => {
         <p className={classes.PriceSum}>
           Celkem: <br />
           {props.price && props.price.toFixed(2)}Kč
-        </p>{" "}
+        </p>
         <p className={classes.PriceSum}>
           Množství: <br />
           {props.inventory}
