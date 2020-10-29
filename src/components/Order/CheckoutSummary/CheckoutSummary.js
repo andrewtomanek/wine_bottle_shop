@@ -4,7 +4,7 @@ import CheckoutList from "./CheckoutList";
 import Button from "../../UI/Button/Button";
 import classes from "./CheckoutSummary.module.css";
 
-const checkoutSummary = (props) => {
+const CheckoutSummary = (props) => {
   const inventorySum = Object.keys(props.inventory)
     .map((igKey) => {
       return props.inventory[igKey];
@@ -44,4 +44,4 @@ const checkoutSummary = (props) => {
   );
 };
 
-export default checkoutSummary;
+export default CheckoutSummary;

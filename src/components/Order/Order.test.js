@@ -1,31 +1,14 @@
 import React from "react";
 import { shallow } from "enzyme";
 import Order from "./Order";
+import { inventory, listItems } from "../../shared/testData";
 
 const purchaseCancelled = jest.fn();
 const purchaseContinued = jest.fn();
 
 const props = {
-  inventory: {
-    shopItem1: 1,
-    shopItem2: 2,
-    shopItem3: 3,
-    shopItem4: 4,
-    shopItem5: 5,
-    shopItem6: 6,
-    shopItem7: 7,
-    shopItem8: 8,
-  },
-  listItems: {
-    shopItem1: "Solaris",
-    shopItem2: "Dornfelder",
-    shopItem3: "Agni",
-    shopItem4: "Muscaris",
-    shopItem5: "Sauvignon",
-    shopItem6: "Tramín",
-    shopItem7: "Hibernal",
-    shopItem8: "Pálava",
-  },
+  inventory,
+  listItems,
   price: 999,
   purchaseCancelled,
   purchaseContinued,

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Shallow Render Modal component Match Snapshot of Modal component 1`] = `
+<Fragment>
+  <backdrop
+    clicked={false}
+    show={true}
+  />
+  <div
+    className="Modal"
+    style={
+      Object {
+        "opacity": "1",
+        "transform": "translateY(0)",
+      }
+    }
+  />
+</Fragment>
+`;

@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Shallow Render CheckoutSummary component Match Snapshot of CheckoutSummary component 1`] = `
+<div
+  className="CheckoutSummary"
+>
+  <div
+    className="CheckoutBox"
+  >
+    <CheckoutList
+      inventory={
+        Object {
+          "shopItem1": 1,
+          "shopItem2": 2,
+          "shopItem3": 3,
+          "shopItem4": 4,
+          "shopItem5": 5,
+          "shopItem6": 6,
+          "shopItem7": 7,
+          "shopItem8": 8,
+        }
+      }
+      listItems={
+        Object {
+          "shopItem1": "Solaris",
+          "shopItem2": "Dornfelder",
+          "shopItem3": "Agni",
+          "shopItem4": "Muscaris",
+          "shopItem5": "Sauvignon",
+          "shopItem6": "Tramín",
+          "shopItem7": "Hibernal",
+          "shopItem8": "Pálava",
+        }
+      }
+      pricesList={
+        Object {
+          "shopItem1": 50,
+          "shopItem2": 100,
+          "shopItem3": 150,
+          "shopItem4": 70,
+          "shopItem5": 140,
+          "shopItem6": 90,
+          "shopItem7": 120,
+          "shopItem8": 110,
+        }
+      }
+    />
+  </div>
+  <div
+    className="CheckoutContent"
+  >
+    <h4
+      className="CheckoutHeading"
+    >
+      Potvdit kompletní obsah objednávky
+    </h4>
+  </div>
+  <div
+    className="CheckoutControls"
+  >
+    <button
+      btnType="Danger"
+    >
+      Zrušit
+    </button>
+    <button
+      btnType="Success"
+      disabled={false}
+    >
+      Pokračovat
+    </button>
+  </div>
+</div>
+`;
