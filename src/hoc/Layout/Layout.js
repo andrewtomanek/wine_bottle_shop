@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions/index";
 import classes from "./Layout.module.css";
@@ -18,7 +18,7 @@ const Layout = (props) => {
   };
 
   return (
-    <Fragment>
+    <>
       <main className={classes.Content}>
         <SideDrawer
           inventory={props.cartContent}
@@ -45,7 +45,7 @@ const Layout = (props) => {
           emptyShopCart={props.emptyShopCart}
         />
       )}
-    </Fragment>
+    </>
   );
 };
 

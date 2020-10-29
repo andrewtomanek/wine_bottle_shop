@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders SideDrawer renders SideDrawer component 1`] = `
+<Fragment>
+  <backdrop
+    clicked={[MockFunction]}
+    show={true}
+  />
+  <div
+    className="SideDrawer Open"
+    onClick={[MockFunction]}
+  >
+    <div
+      className="Logo"
+    >
+      <logo />
+    </div>
+    <nav
+      className="Navigation"
+    >
+      <NavigationItems
+        isAuthenticated={true}
+      />
+    </nav>
+  </div>
+</Fragment>
+`;

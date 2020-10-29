@@ -1,10 +1,10 @@
-import React, { Fragment } from "react";
+import React from "react";
 import classes from "./Modal.module.css";
 import Backdrop from "../Backdrop/Backdrop";
 
 const Modal = (props) => {
   return (
-    <Fragment>
+    <>
       <Backdrop show={props.show} clicked={props.modalClosed} />
       <div
         className={classes.Modal}
@@ -15,7 +15,7 @@ const Modal = (props) => {
       >
         {props.children}
       </div>
-    </Fragment>
+    </>
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import StoreBoard from "../../components/Store/StoreBoard";
 import BuildControls from "../../components/Store/BuildControls/BuildControls";
@@ -62,7 +62,7 @@ const StoreBuilder = (props) => {
 
   if (props.invent && props.listNames) {
     store = (
-      <Fragment>
+      <>
         <BuildControls
           inventory={reduceCartState(props.invent)}
           inventoryAdded={props.onInventoryAdded}
@@ -74,11 +74,11 @@ const StoreBuilder = (props) => {
           price={props.price}
         />
         <StoreBoard inventory={props.invent} listNames={props.listNames} />
-      </Fragment>
+      </>
     );
   }
   return (
-    <Fragment>
+    <>
       <Modal show={purchasing} modalClosed={purchaseCancelHandler}>
         {props.invent && props.listNames && props.price ? (
           <OrderSummary
@@ -93,7 +93,7 @@ const StoreBuilder = (props) => {
         )}
       </Modal>
       {store}
-    </Fragment>
+    </>
   );
 };
 
