@@ -1,6 +1,6 @@
 .Content {
   display: grid;
-  grid: 10vh 40vh 1fr / 1fr;
+  grid: 10vh 50vh 1fr / 1fr;
   justify-items: center;
   justify-content: space-around;
   align-content: space-around;

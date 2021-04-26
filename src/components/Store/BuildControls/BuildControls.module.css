@@ -2,17 +2,17 @@
   grid-area: 2/1/2/1;
   display: grid;
   margin: 0;
-  padding: 1rem 0.2rem;
+  padding: 1rem;
   background-color: var(--wine);
-  height: 40vh;
+  min-height: 40vh;
 }
 
 .BuildBox {
-  width: 100%;
   display: grid;
   grid-template-columns: repeat(2, minmax(10vw, 1fr));
   grid-template-rows: repeat(auto-fill, minmax(5vh, 1fr));
-  padding: 0.1rem;
+  gap: 0.1rem 1rem;
+  padding: 1rem;
 }
 
 .ControlBox {
@@ -22,7 +22,7 @@
   grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
   grid-template-rows: 10vh;
   justify-items: center;
-  padding: 0;
+  padding: 2rem 1rem;
 }
 
 .PriceSum {
@@ -86,11 +86,10 @@
 
 @media (min-width: 600px) {
   .BuildControls {
-    height: 30vh;
+    min-height: 30vh;
   }
 
   .BuildBox {
-    width: 100%;
     display: grid;
     grid-template-columns: repeat(4, minmax(10vw, 1fr));
     grid-template-rows: repeat(auto-fill, minmax(10vh, 1fr));
