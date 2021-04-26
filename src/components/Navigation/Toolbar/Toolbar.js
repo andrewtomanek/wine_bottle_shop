@@ -8,7 +8,6 @@ import NavigationItems from "../NavigationItems/NavigationItems";
 import DrawerToggle from "../SideDrawer/DrawerToggle/DrawerToggle";
 
 const Toolbar = (props) => {
-  console.log(props);
   const calculateCounter = (inventory) => {
     if (reduceCartState(inventory) === 0) return null;
     return (

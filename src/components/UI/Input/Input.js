@@ -2,7 +2,7 @@ import React from "react";
 
 import classes from "./Input.module.css";
 
-const input = props => {
+const Input = (props) => {
   let inputElement = null;
   const inputClasses = [classes.InputElement];
 
@@ -38,7 +38,7 @@ const input = props => {
           value={props.value}
           onChange={props.changed}
         >
-          {props.elementConfig.options.map(option => (
+          {props.elementConfig.options.map((option) => (
             <option key={option.value} value={option.value}>
               {option.displayValue}
             </option>
@@ -65,4 +65,4 @@ const input = props => {
   );
 };
 
-export default input;
+export default Input;
