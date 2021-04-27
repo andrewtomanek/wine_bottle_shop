@@ -1,10 +1,8 @@
 .Content {
   display: grid;
-  grid: 10vh 50vh 1fr / 1fr;
-  justify-items: center;
-  justify-content: space-around;
-  align-content: space-around;
+  grid: 10vh 1fr 2fr / 1fr;
+  align-items: center;
+  justify-content: center;
   margin: 0;
   min-height: 80vh;
-  height: 100%;
 }

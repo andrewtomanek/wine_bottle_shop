@@ -6,7 +6,7 @@ import axios from "../../../axios-orders";
 
 const CheckoutCard = ({ itemName, itemType, itemPrice, ...props }) => {
   return (
-    <div className={`${classes[itemType]} ${classes.ShopItem}`}>
+    <div className={classes.ShopItem} id={itemType}>
       <p className={classes.ItemLabel}>{itemName}</p>
       <p className={classes.ItemPrice}>{itemPrice}</p>
       <div className={classes.BuildControl}>
