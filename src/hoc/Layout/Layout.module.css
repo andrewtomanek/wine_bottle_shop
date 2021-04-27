@@ -1,8 +1,9 @@
 .Content {
   display: grid;
-  grid: 10vh 1fr 2fr / 1fr;
+  grid-template-rows: 10vh 1fr auto;
+  grid-template-columns: 100vw;
   align-items: center;
   justify-content: center;
-  margin: 0;
+  width: 100vw;
   min-height: 80vh;
 }

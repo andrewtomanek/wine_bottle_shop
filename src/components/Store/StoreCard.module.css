@@ -1,4 +1,12 @@
+.ShopItem {
+  display: grid;
+  grid-template-rows: 1fr /1fr;
+  align-items: center;
+  justify-content: center;
+  animation: appear 0.3s linear;
+}
 .ItemLabel {
+  grid-area: 1/1/1/1;
   place-self: center center;
   color: white;
   background-color: var(--orange);
@@ -8,16 +16,10 @@
   border-radius: 50%;
 }
 
-.ShopItem {
-  display: grid;
-  margin: 0.2rem;
-  width: 100%;
+.ItemPicture {
+  grid-area: 1/1/1/1;
+  place-self: center center;
   height: 20vh;
-  background-position-x: center;
-  background-position-y: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  animation: appear 0.3s linear;
 }
 
 @keyframes appear {

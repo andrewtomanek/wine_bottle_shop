@@ -1,10 +1,12 @@
 .Modal {
   display: grid;
-  grid-area: 2/1/4/1;
-  z-index: 5;
+  position: absolute;
+  top: 10vh;
+  left: 15%;
+  z-index: 99;
   background-color: white;
-  width: 90vw;
-  height: 50vh;
+  width: 70vw;
+  height: 70vh;
   border: 1px solid #ccc;
   box-shadow: 1px 1px 1px black;
   padding: 0;
@@ -12,9 +14,11 @@
   transition: all 0.3s ease-out;
 }
 
-@media (min-width: 600px) {
+@media (max-width: 600px) {
   .Modal {
-    width: 70vw;
-    height: 70vh;
+    width: 90vw;
+    height: 50vh;
+    top: 10vh;
+    left: 5%;
   }
 }
