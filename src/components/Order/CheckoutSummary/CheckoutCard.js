@@ -6,7 +6,12 @@ import axios from "../../../axios-orders";
 
 const CheckoutCard = ({ itemName, itemType, itemPrice, ...props }) => {
   return (
-    <div className={classes.ShopItem} id={itemType}>
+    <div className={classes.ShopItem}>
+      <img
+        className={classes.ItemPicture}
+        src={`/img/cont/${itemType}.png`}
+        alt={itemType}
+      />
       <p className={classes.ItemLabel}>{itemName}</p>
       <p className={classes.ItemPrice}>{itemPrice}</p>
       <div className={classes.BuildControl}>

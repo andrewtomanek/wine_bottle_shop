@@ -1,10 +1,26 @@
+.ShopItem {
+  display: grid;
+  grid-template-rows: 1fr /1fr;
+  align-items: center;
+  justify-content: center;
+  animation: appear 0.3s linear;
+}
+
 .ItemLabel {
+  grid-area: 1/1/1/1;
+
   color: white;
   background-color: var(--orange);
   font-weight: 900;
   font-size: 1.1rem;
   padding: 0.4rem 0.6rem;
   border-radius: 50%;
+}
+
+.ItemPicture {
+  grid-area: 1/1/1/1;
+  place-self: center center;
+  height: 20vh;
 }
 
 .ItemPrice {
@@ -74,12 +90,6 @@
 .ShopItem {
   display: grid;
   justify-content: center;
-  align-content: center;
-  grid-auto-flow: row;
-  width: 90%;
-  height: 30vh;
-  background-position-x: center;
-  background-position-y: center;
-  background-size: contain;
-  background-repeat: no-repeat;
+  align-items: center;
+  grid-template-rows: 1fr 5vh 5vh;
 }

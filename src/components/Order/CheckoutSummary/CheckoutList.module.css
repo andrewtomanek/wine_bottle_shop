@@ -1,10 +1,7 @@
 .CheckoutList {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
-  width: 95vw;
-  height: 100%;
-  margin: 0;
-  overflow: hidden;
+  grid-template-columns: repeat(6, minmax(15%, 1fr));
+  gap: 3rem 1rem;
 }
 
 .Empty {
@@ -15,13 +12,17 @@
   height: 100%;
 }
 
-
 .PriceSum {
   background-color: var(--wine);
   color: var(--red);
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: 700;
-  padding: 0.1rem 0.2rem;
+  padding: 1rem 0.2rem;
   width: 100%;
+}
 
+@media (max-width: 600px) {
+  .CheckoutList {
+    grid-template-columns: repeat(3, minmax(10%, 1fr));
+  }
 }
